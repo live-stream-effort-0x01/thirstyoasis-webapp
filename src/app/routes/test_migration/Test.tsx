@@ -6,6 +6,7 @@ import { useEffect } from "react"
 export default function Test(){
 
     useEffect(()=>{
+        document.title = "Welcome"
 
         // get swiper via unpkg.com
         const swiperScript = document.createElement("script");
@@ -18,7 +19,14 @@ export default function Test(){
         };
     
         document.body.appendChild(swiperScript);
-    
+        
+        // fix styles order
+        document.querySelectorAll('link[rel="stylesheet"]').forEach((link) => {
+            document.head.appendChild(link); // Moves links to the end of <head>
+        });
+        
+       
+
         return () => {
           document.body.removeChild(swiperScript);
         };
@@ -229,6 +237,65 @@ export default function Test(){
                     </div>
                 </div>
 
+                {/* <!--Login Modal--> */}
+                <div id="login-modal" className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={()=>closeModal('login-modal')}>&times;</span>
+                        <h3>Log in to ThirstyOasis</h3>
+                        <form>
+                            <label htmlFor="login-username">Username</label>
+                            <input type="name" id="login-username" name="login-username"/>
+                            
+                            <label htmlFor="login-password">Password</label>
+                            <input type="password" id="login-password" name="login-password"/>
+                            
+                            <a className="login-trouble">Having trouble logging in?</a>
+                            <button type="submit" className="login-btn">Login</button>
+                            
+                            <p className="login-link">Dont'have account? <a href="#">Sign Up</a></p>
+                        </form>
+                    </div>
+                </div>  
+
+                {/* <!--Sign Up Modal--> */}
+                <div id="signup-modal" className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={()=>closeModal('signup-modal')}>&times;</span>
+                        <h3>Join ThirstyOasis</h3>
+                        <form>
+                            <label htmlFor="signup-username">Username</label>
+                            <input type="email" id="signup-email" name="signup-email" required />
+
+                            <label htmlFor="signup-password">Password</label>
+                            <input type="password" id="signup-password" name="signup-password" required/>
+                            
+                            <label htmlFor="signup-birthday">Date of Birth</label>
+                            <div className="dob">
+                                <input type="text" id="signup-code" name="signup-code" required placeholder="Month"/>
+                                <input type="number" id="signup-number" name="signup-number" required placeholder="Day"/>
+                                <input type="number" id="signup-number" name="signup-number" required placeholder="Year"/>
+                            </div>
+
+                            <label htmlFor="signup-number">Phone Number</label>
+                            <div className="phone">
+                                <input type="tel" id="signup-number" name="signup-number" required placeholder="Number"/>
+                            </div>
+
+                            <div className="option-buttons">
+                                <button className="streamer-btn">I am a Streamer</button>
+                                <button className="fun-btn">I am here to have Fun</button>
+                            </div>
+
+                            <div className="info">
+                                <p className="signup-info">ThirstyOasis may use your phone number to call or send text messages with information regarding your account.</p>
+                                <p className="signup-terms">By clicking Sign Up, you are agreeing to ThirstyOasis’s <a href="#" className="signup-infos">Terms of Service</a> and are acknowledging our <a href="#" className="signup-infos">Privacy Notice</a> applies.</p>
+                            </div>
+                            <button type="submit" className="signup-btn">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+
+ 
             </div>
 
             <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
