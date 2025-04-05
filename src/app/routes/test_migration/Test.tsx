@@ -224,6 +224,44 @@ export default function Test(){
                                 </div>
                             </div>
                         </div>
+                        <div className="card">
+                            <img src="https://images.pexels.com/photos/1882712/pexels-photo-1882712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="Card Image" className="card__image"/>
+                            <div className="card__content">
+                                <div className="card__header">
+                                    <img src="https://th.bing.com/th/id/OIP.PXhyRtw-JCHrwUAWlZnFjwHaHa?w=1920&h=1920&rs=1&pid=ImgDetMain"
+                                        alt="Artist" className="card__artist"/>
+                                    <div className="card__info">
+                                        <h3 className="card__title">Losing my mind</h3>
+                                        <p className="card__price">$9.99</p>
+                                        <p className="card__artist__name">toohotkendal</p>
+                                        <div className="card__tags">
+                                            <span className="card__tag">Tag 1</span>
+                                            <span className="card__tag">Tag 2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <img src="https://images.pexels.com/photos/1882712/pexels-photo-1882712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="Card Image" className="card__image"/>
+                            <div className="card__content">
+                                <div className="card__header">
+                                    <img src="https://th.bing.com/th/id/OIP.PXhyRtw-JCHrwUAWlZnFjwHaHa?w=1920&h=1920&rs=1&pid=ImgDetMain"
+                                        alt="Artist" className="card__artist"/>
+                                    <div className="card__info">
+                                        <h3 className="card__title">Losing my mind</h3>
+                                        <p className="card__price">$9.99</p>
+                                        <p className="card__artist__name">toohotkendal</p>
+                                        <div className="card__tags">
+                                            <span className="card__tag">Tag 1</span>
+                                            <span className="card__tag">Tag 2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         {/* <!-- Repeat card structure for other cards --> */}
                     </div>
                 </main>
@@ -297,7 +335,13 @@ export default function Test(){
                     </div>
                 </div>
 
- 
+                {/* <!--Footer--> */}
+                <footer className="footer">
+                    <img src={logo} alt="logo" className="footer__logo"/>
+                    <p className="footer__copyright">&copy; 2025 Thirsty Oasis. All rights reserved.</p>
+                </footer>
+
+
                 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
             </div>
 

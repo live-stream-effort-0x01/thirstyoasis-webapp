@@ -1,17 +1,18 @@
 import logo from "../../assets/ThirstyOasis.png"
-import NavBar from "./components/NavBar";
-import LoginActions from "./components/UserActionsComponents/LoginActions";
-import SessionActions from "./components/UserActionsComponents/SessionActions";
+import NavBar from "./components/NavBar/NavBar";
+import LoginActions from "./components/UserActions/ActionsContainer/LoginActions";
+import SessionActions from "./components/UserActions/ActionsContainer/SessionActions";
 import toggleMenu from "./utils/toggleMenu";
 
 
-export default function Header({isAuth}: AuthProps){
+export default function Header({isAuth, credits}: SessionProps){
 
     return (
         <header className="header">
 
             <div className="header__menu">
                 <img src={logo} alt="logo" className="header__logo" />
+
                 <div className="hamburger-menu" onClick={()=>toggleMenu()}>
                     <i className="fas fa-bars"></i>
                 </div>
@@ -20,7 +21,11 @@ export default function Header({isAuth}: AuthProps){
             <div className="header__nav-container">
                 <NavBar/>
 
-                {isAuth? <SessionActions coins={5600}/>: <LoginActions/>}
+                {isAuth? 
+                    <SessionActions credits={credits}/>
+                    : 
+                    <LoginActions/>
+                }
 
             </div>
        </header>
