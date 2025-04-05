@@ -1,4 +1,4 @@
-import "./css/welcome.css"
+// import "./css/welcome.css"
 
 import logo from "../../../assets/ThirstyOasis.png"
 import { useEffect } from "react"

@@ -1,3 +1,5 @@
+
+import { ActionButtonProps } from "./types/types";
 import renderModalSwitch from "./utils/renderModalSwitch";
 
 

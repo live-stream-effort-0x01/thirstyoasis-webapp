@@ -1,3 +1,4 @@
+
 type AuthProps= {
     isAuth: boolean
 };
@@ -17,13 +18,3 @@ type ModalData= {
 };
 
 
-type ButtonProps = {
-    text: string,
-    classes: string,
-    onClickFunction: Function
-};
-
-type ActionButtonProps = ButtonProps & {modalKey: ModalKey };
-
-
-type ButtonTypeKey = "PRIMARY" | "SECONDARY";

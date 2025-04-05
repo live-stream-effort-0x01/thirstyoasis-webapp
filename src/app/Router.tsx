@@ -5,7 +5,7 @@ import StreamPage from './routes/StreamPage'
 import NotFoundPage from './routes/NotFoundPage'
 import { useState } from 'react'
 
-// import "../styles/globals.css"
+import "../styles/globals.css"
 
 //renamed from App.tsx to Router.tsx
 export default function Router() {
