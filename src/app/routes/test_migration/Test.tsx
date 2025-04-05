@@ -21,12 +21,15 @@ export default function Test(){
         document.body.appendChild(swiperScript);
         
         // fix styles order
+        // Problem source: when a CSS file is imported in a component, that css
+        // is wraped in a <style> element at the end of the <head> of the rendered HTML.
+        // The original order of the html stylesheets was [welcome.css -> font-awesome's css-> swiper's css], but when we import css from a component, it breaks the order to [font-awesome's css -> swiper's css -> welcome.css], because the welcome.css styles are added to a <style> component at the end of the <head>.
         document.querySelectorAll('link[rel="stylesheet"]').forEach((link) => {
             document.head.appendChild(link); // Moves links to the end of <head>
         });
         
        
-
+        //remove swiper after <Test/> unmounts
         return () => {
           document.body.removeChild(swiperScript);
         };
@@ -35,7 +38,6 @@ export default function Test(){
     }, [])
 
     return (
-        <div>
             <div className="container">
                 {/* Navigation Bar */}
                 <header className="header">
@@ -296,11 +298,10 @@ export default function Test(){
                 </div>
 
  
+                <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
             </div>
 
-            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-            
-        </div>
+        
     )
 }
 

@@ -1,0 +1,1 @@
+src/features/[feature-name]/components: components scoped to a specific feature, that is, they won't be reutilized in other parts of the app

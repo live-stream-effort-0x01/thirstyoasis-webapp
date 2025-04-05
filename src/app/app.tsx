@@ -6,8 +6,8 @@ import Router from './Router.tsx'
 //renamed from main.tsx to app.tsx
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-  <BrowserRouter>
-    <Router />
-  </BrowserRouter>
+    <BrowserRouter>
+        <Router />
+    </BrowserRouter>
   </StrictMode>,
 )

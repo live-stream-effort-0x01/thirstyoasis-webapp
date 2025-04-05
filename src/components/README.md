@@ -1,0 +1,1 @@
+src/components: general components reutilized across the app
