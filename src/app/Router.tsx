@@ -10,7 +10,7 @@ import "../styles/globals.css"
 //renamed from App.tsx to Router.tsx
 export default function Router() {
 
-    const [isAuth, setIsAuth] = useState<boolean>(true);//this can be moved to a context or state library
+    const [isAuth, setIsAuth] = useState<boolean>(false);//this can be moved to a context or state library
     const [credits, setCredits] = useState<number>(5600);//this can be moved to a context or state library
 
     console.log("credits",credits)

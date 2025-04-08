@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 
 export type ActionButtonProps = {
-    text: string | ReactNode,
+    content: string | ReactNode,
     classes: string,
     onClickFunction: Function,
     modalKey: ModalKey };

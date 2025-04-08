@@ -4,7 +4,7 @@ import renderModalSwitch from "./utils/renderModalSwitch";
 
 
 export default function ActionButton(
-    {text, classes, onClickFunction, modalKey}: ActionButtonProps
+    {content: text, classes, onClickFunction, modalKey}: ActionButtonProps
 ) {
 
     return (

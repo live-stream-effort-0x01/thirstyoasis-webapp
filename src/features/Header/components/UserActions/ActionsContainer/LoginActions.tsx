@@ -11,13 +11,13 @@ export default function LoginActions(){
 
             <ActionButton 
                 classes={ACTION_BUTTON_STYLES.SECONDARY}
-                text="Login"
+                content="Login"
                 onClickFunction={()=>openModal(MODALS.LOGIN)}
                 modalKey="LOGIN"/>
 
             <ActionButton 
                 classes={ACTION_BUTTON_STYLES.PRIMARY}
-                text="Sign Up"
+                content="Sign Up"
                 onClickFunction={()=>openModal(MODALS.SIGNUP)}
                 modalKey="SIGNUP"/>
 

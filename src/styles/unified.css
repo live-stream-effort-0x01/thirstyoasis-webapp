@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --bg-primary: #F5FFFB;
+    --bg-secondary: #03AD5F;
+    --bg-tertiary: #DEF9EE;
+    --navbar-primary: #f5f5f5;
+    --white-400: #fafafa;
+    --gray: #8a8a8a;
+    --text-primary: #080808;
+    --text-secondary: #FFFFFF;
+    --tags-primary: #577A6A;
+    --gradient-primary: linear-gradient(90deg, rgba(3, 173, 95, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-primary);
+}
+
+.header {
+    background-color: var(--bg-tertiary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.header__logo {
+    height: auto;
+}
+
+.header__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header__nav-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.header__nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.header__nav-list--left li:hover {
+    color: var(--bg-secondary);
+}
+
+.header__nav-item {
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* signup, buytokens */
+.header__nav-item--secondary {
+    background-color: transparent;
+    color: var(--bg-secondary);
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: solid 2px var(--bg-secondary);
+}
+
+/* login, streamnow, tokencontainer */
+.header__nav-item--primary {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: solid 2px var(--bg-secondary);
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--bg-secondary);
+}
+
+/* Swiper classes */
+.swiper-container {
+    width: 100%;
+    height: 300px; /* Default height */
+    position: relative; /* This is used to position the nav arrows which are at the bottom of the swiper by default */
+}
+
+.swiper-slide img {
+/* Ensure the image covers the entire slide */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* Most of the swiper classes below get overriden by the swiper bundle css, so they act as fallback. */
+
+/* fallback */
+.swiper-slide {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto; /* Adjust the width as needed */
+    height: 100%; /* Ensure the slide takes the full height of the container */
+    
+    /* alt text styles */
+    font-size: 18px;
+    text-align: center;
+    
+}
+
+/* fallback */
+.swiper-button-prev,
+.swiper-button-next {
+    color: var(--bg-secondary); /* Adjust the color as needed */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+/* fallback */
+.swiper-button-prev {
+    left: 10px; /* Adjust the position as needed */
+}
+
+/* fallback */
+.swiper-button-next {
+    right: 10px; /* Adjust the position as needed */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #21a046;
+    border-radius: 5px;
+    width: 90%;
+    margin: 20px auto;
+
+    /* unnecessary */
+    /* justify-content: center; */
+    /* overflow: hidden; */
+}
+
+.search-bar {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-icon {
+    color: var(--text-secondary);
+    background-color: var(--bg-secondary);
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid var(--bg-secondary);
+}
+
+.tags-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 20px 0;
+}
+
+.tags {
+    display: flex;
+    width: 90%;
+    gap: 23px;
+    padding: 10px 0;
+    /* scroll for mobiles */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.tag {
+    padding: 5px 10px;
+    color: var(--text-primary);
+    border: solid 1px var(--bg-secondary);
+    border-radius: 5px;
+    white-space: nowrap;
+    cursor: pointer;
+    /* no onEvent changing styles implemented yet, so transition is not needed */
+    /* transition: background-color 0.3s; */
+}
+
+.tags-prev,
+.tags-next {
+    cursor: pointer;
+    color: var(--bg-secondary);
+    background-color: transparent;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    /* transition: 0.3s; */
+    user-select: none; /* prevents highlighting its text */    
+    position: absolute;
+    /* unnecessary because .tags occupies 90%, and there's 5% left for each prev/next, that means tags and nav arrows are all align-items-centered in the same line. */
+   /* top: 50%;
+    transform: translateY(-50%); */
+}
+
+/* on large screens, it sticks nav arrows close to each side edge of screen */
+.tags-prev {
+    left: 0;
+}
+
+.tags-next {
+    right: 0;
+}
+
+
+.section-header {
+    padding: 10px;
+    margin: 20px 0 10px;
+    font-size: 24px;
+    /* ? */
+    /* border-radius: 5px; */
+    /* gap: 10px; */
+}
+
+.section-header__main {
+    color: var(--bg-secondary);
+    font-weight: bold;
+}
+
+.section-header__sub {
+    color: var(--text-primary);
+}
+

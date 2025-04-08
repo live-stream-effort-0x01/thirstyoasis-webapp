@@ -12,19 +12,19 @@ export default function SessionActions({credits}: CreditProps){
 
             <ActionButton 
                 classes={ACTION_BUTTON_STYLES.SECONDARY}
-                text="Stream Now"
+                content="Stream Now"
                 onClickFunction={()=> openModal(MODALS.STREAM_NOW)}
                 modalKey="STREAM_NOW"/>
 
             <ActionButton 
                 classes={ACTION_BUTTON_STYLES.PRIMARY}
-                text="Buy Tokens"
+                content="Buy Tokens"
                 onClickFunction={()=> openModal(MODALS.BUY_TOKENS)}
                 modalKey="BUY_TOKENS"/>
                 
             <ActionButton 
                 classes={ACTION_BUTTON_STYLES.PRIMARY}
-                text={<><i className="fas fa-coins"></i> {credits}</>}
+                content={<><i className="fas fa-coins"></i> {credits}</>}
                 onClickFunction={()=> openModal(MODALS.BUY_NOW)}
                 modalKey="BUY_NOW"/>
 
