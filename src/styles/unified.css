@@ -383,3 +383,112 @@ body {
     color: var(--text-primary);
     border: 2px solid var(--text-primary);
 }
+
+/* reutilize .overlay for modal overlay */
+
+/* login/signup modals */
+.modal-content-auth {
+    background-color: var(--bg-primary);
+    padding: 20px;
+    width: 80%;
+    max-width: 620px;
+    border-radius: 10px;
+    /* margin: auto; */
+
+    /* scrollbar could be customized here */
+}
+
+.modal-content-auth h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-content-auth form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content-auth label {
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.modal-content-auth .login-trouble {
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: var(--bg-secondary);
+}
+
+.modal-content-auth input {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid var(--bg-secondary);
+    border-radius: 5px;
+    background: var(--gradient-primary);
+}
+
+.modal-content-auth .signup-btn,
+.modal-content-auth .login-btn {
+    background-color: var(--bg-secondary);
+    color: white;
+    padding: 10px 0; /* horizontal padding overriden by the default align-items: stretch */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* signup modal */
+.modal-content-auth .signup-info,
+.modal-content-auth .login-link {
+    color: var(--bg-secondary);
+}
+
+/* input container */
+.dob {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dob > input {
+    flex: 1;
+}
+
+/* input container */
+.role-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.role-btn {
+    padding: 10px;
+    flex: 1;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid var(--bg-secondary);
+
+    /* non-selected role */
+    background: var(--text-secondary);
+    color: var(--bg-secondary);
+}
+
+/* we can add/remove this class to select/unselect button */
+.role-btn-selected {
+    background: var(--bg-secondary) !important;
+    color: var(--text-secondary) !important;
+    /* border is not a problem bc it overlaps with the default align-items:stretch */
+}
+
+.close {
+    color: var(--bg-secondary);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
