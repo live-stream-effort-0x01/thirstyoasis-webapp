@@ -243,3 +243,143 @@ body {
     color: var(--text-primary);
 }
 
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+
+    gap: 10px; /* inner space */
+    padding: 0 10px; /* outer space */
+}
+
+.card {
+    background-color: transparent;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    /* overflow: hidden; */
+    /* text-align: center; */
+}
+
+.card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* container */
+.card__content {
+    padding: 10px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* profile pic */
+.card__artist {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* text container */
+.card__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card_info > * {
+    margin: 0;
+}
+
+.card__title {
+    font-size: 18px;
+}
+
+.card__price {
+    font-size: 16px;
+    color: var(--bg-secondary);
+    margin: 5px 0 !important;
+    font-weight: bold;
+}
+
+.card__artist__name {
+    font-size: 14px;
+}
+
+/* container */
+.card__tags {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.card__tag {
+    background-color: var(--tags-primary);
+    color: var(--text-secondary);
+    padding: 5px 5px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+
+.overlay {    
+    display: none; /* changes to display: flex with window.onload, and comes back to display: none when clicking the agree button  */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    /* overflow: auto; */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* changes to flex on page load and centers the content */
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-content {
+    background-color: var(--bg-primary);
+    /* margin: auto; */
+    padding: 30px 70px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.overlay-content h2 {
+    margin-bottom: 20px;
+    color: var(--bg-secondary);
+}
+
+.overlay-content p {
+    margin-bottom: 18px;
+}
+
+.overlay-content button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.overlay-content .button__agree {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: none;
+}
+
+.overlay-content .button__disagree {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 2px solid var(--text-primary);
+}
