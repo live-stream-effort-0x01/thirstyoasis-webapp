@@ -12,7 +12,7 @@ import "../styles/unified.css"
 export default function Router() {
 
     //this can be moved to a context or state library
-    const [isAuth, setIsAuth] = useState<boolean>(true);
+    const [isAuth, setIsAuth] = useState<boolean>(false);
     const [credits, setCredits] = useState<number>(5600);
     const [modalKey, setModalKey] = useState<ModalKey|null>(null);
 

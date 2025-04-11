@@ -4,14 +4,14 @@ import LoginModal from "../Modals/Login";
 import Signup from "../Modals/Signup";
 import StreamNow from "../Modals/StreamNow";
 
-export default function renderModalSwitch(modalKey: ModalKey | null){
+export default function renderModalSwitch(newModalKey: ModalKey | null, {modalKey, setModalKey}: ModalProps){
 
-    if (modalKey === null) return;
+    if (newModalKey === null) return;
 
-    switch(modalKey){
-        case "LOGIN": return <LoginModal />
+    switch(newModalKey){
+        case "LOGIN": return <LoginModal modalKey={modalKey} setModalKey={setModalKey} />
         
-        case "SIGNUP": return <Signup />
+        case "SIGNUP": return <Signup/>
 
         case "STREAM_NOW" : return <StreamNow />
 

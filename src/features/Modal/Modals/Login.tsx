@@ -1,7 +1,8 @@
 import { MODALS } from "../config/modalsConfig";
 import closeModal from "../utils/closeModal";
+import handleModalClick from "../utils/handleModalClick";
 
-export default function Login(){
+export default function Login({modalKey, setModalKey}:ModalProps){
     
     return (
         <div id={MODALS.LOGIN.id} className="overlay">
@@ -18,7 +19,10 @@ export default function Login(){
                 <a className="login-trouble">Having trouble logging in?</a>
                 <button type="submit" className="login-btn">Login</button>
                 
-                <p className="login-link">Dont'have account? <a href="#">Sign Up</a></p>
+                <p className="login-link">
+                    Dont'have account? 
+                    <a href="#" onClick={()=>handleModalClick("SIGNUP", {modalKey, setModalKey})}>Sign Up</a>
+                </p>
             </form>
         </div>
     </div>  

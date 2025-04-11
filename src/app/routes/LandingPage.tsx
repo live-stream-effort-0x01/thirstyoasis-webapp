@@ -19,7 +19,7 @@ export default function LandingPage ({isAuth, credits, modalKey, setModalKey}:Se
 
             <AgreementOverlay />
 
-            <Modal modalKey={modalKey}/>
+            <Modal modalKey={modalKey} setModalKey={setModalKey}/>
 
             <Header isAuth={isAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>
            

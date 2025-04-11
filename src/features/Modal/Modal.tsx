@@ -5,7 +5,7 @@ import openModal from "./utils/openModal";
 
 
 
-export default function Modal({modalKey}:ReadModalProps){
+export default function Modal({modalKey, setModalKey}:ModalProps){
     
     //after rendering (with display: none) the display styles are changed by the useEffect
     useEffect(()=>{ 
@@ -18,7 +18,7 @@ export default function Modal({modalKey}:ReadModalProps){
 
     return(
         <>
-            {renderModalSwitch(modalKey)}
+            {renderModalSwitch(modalKey, {modalKey, setModalKey})}
         </>
     )
 }
