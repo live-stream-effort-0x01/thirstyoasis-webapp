@@ -11,9 +11,10 @@ import "../styles/unified.css"
 //renamed from App.tsx to Router.tsx
 export default function Router() {
 
-    const [isAuth, setIsAuth] = useState<boolean>(true);//this can be moved to a context or state library
-    const [credits, setCredits] = useState<number>(5600);//this can be moved to a context or state library
-    const [modalKey, setModalKey] = useState<ModalKey|null>(null);//this can be moved to a context or state library
+    //this can be moved to a context or state library
+    const [isAuth, setIsAuth] = useState<boolean>(true);
+    const [credits, setCredits] = useState<number>(5600);
+    const [modalKey, setModalKey] = useState<ModalKey|null>(null);
 
     return (
     <>

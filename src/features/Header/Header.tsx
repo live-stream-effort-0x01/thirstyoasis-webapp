@@ -5,7 +5,7 @@ import SessionActions from "./components/UserActions/SessionActions";
 import toggleMenu from "./utils/toggleMenu";
 
 
-export default function Header({isAuth, credits, setModalKey}: SessionProps & SetModalProps){
+export default function Header({isAuth, credits, modalKey, setModalKey}: SessionProps & ModalProps){
 
     return (
         <header className="header">
@@ -22,9 +22,9 @@ export default function Header({isAuth, credits, setModalKey}: SessionProps & Se
                 <NavBar/>
 
                 {isAuth? 
-                    <SessionActions credits={credits} setModalKey={setModalKey}/>
+                    <SessionActions credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>
                     : 
-                    <LoginActions setModalKey={setModalKey}/>
+                    <LoginActions modalKey={modalKey} setModalKey={setModalKey}/>
                 }
 
             </div>

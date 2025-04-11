@@ -21,7 +21,7 @@ export default function LandingPage ({isAuth, credits, modalKey, setModalKey}:Se
 
             <Modal modalKey={modalKey}/>
 
-            <Header isAuth={isAuth} credits={credits} setModalKey={setModalKey}/>
+            <Header isAuth={isAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>
            
             <Slider/>
 
