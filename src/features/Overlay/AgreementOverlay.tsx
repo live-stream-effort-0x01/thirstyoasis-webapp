@@ -2,6 +2,12 @@ import closeOverlay from "./utils/closeOverlay"
 
 export default function AgreementOverlay(){
 
+    window.onload = function () {
+        let overlay = document.getElementById('age-verification-overlay')
+        if (overlay !== null) overlay.style.display = 'flex';
+    }
+
+
     return (
         <div id="age-verification-overlay" className="overlay">
             <div className="overlay-content">

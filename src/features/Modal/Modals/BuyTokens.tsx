@@ -1,6 +1,6 @@
-import { MODALS } from "./config/modalsConfig";
-import closeModal from "./utils/closeModal";
-import openModal from "./utils/openModal";
+import { MODALS } from "../config/modalsConfig";
+import closeModal from "../utils/closeModal";
+import openModal from "../utils/openModal";
 
 export default function BuyTokens(){
 

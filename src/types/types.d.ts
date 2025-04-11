@@ -17,4 +17,16 @@ type ModalData= {
     displayStyle: string
 };
 
+type ButtonTypeKey = "PRIMARY" | "SECONDARY";
 
+
+// Modal
+type ReadModalProps ={
+    modalKey: ModalKey | null
+}
+
+type SetModalProps = {
+    setModalKey: React.Dispatch<React.SetStateAction<ModalKey | null>>
+}
+
+type ModalProps = ReadModalProps & SetModalProps;

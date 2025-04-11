@@ -94,6 +94,7 @@ body {
     width: 100%;
     height: 300px; /* Default height */
     position: relative; /* This is used to position the nav arrows which are at the bottom of the swiper by default */
+    overflow: hidden;
 }
 
 .swiper-slide img {
@@ -398,7 +399,7 @@ body {
     width: 80%;
     max-width: 620px;
     border-radius: 10px;
-    /* margin: auto; */
+    margin: auto;
 }
 
 .modal-content-auth h3 {
@@ -640,5 +641,6 @@ body {
     .card__title {
         font-size: 16px; /*18->16*/
     }
+
 
 }

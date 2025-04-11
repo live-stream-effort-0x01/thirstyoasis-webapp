@@ -10,7 +10,7 @@ export default function useSetupSwiper() {
     
         //setup swiper
         swiperScript.onload = () => {
-            console.log("Swiper script loaded:", window.Swiper);
+            if (import.meta.env.DEV) console.log("Swiper script loaded:", window.Swiper);
             new Swiper('.swiper-container', {
                 navigation: {
                     nextEl: '.swiper-button-next',

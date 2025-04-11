@@ -1,6 +1,6 @@
-import { MODALS } from "./config/modalsConfig";
-import closeModal from "./utils/closeModal";
-import selectPriceOption from "./utils/selectPriceOption";
+import { MODALS } from "../config/modalsConfig";
+import closeModal from "../utils/closeModal";
+import selectPriceOption from "../utils/selectPriceOption";
 
 export default function StreamNow(){
 

@@ -1,11 +1,11 @@
-import { MODALS } from "./config/modalsConfig";
-import closeModal from "./utils/closeModal";
+import { MODALS } from "../config/modalsConfig";
+import closeModal from "../utils/closeModal";
 
 export default function Signup(){
 
     return (
-        <div id={MODALS.SIGNUP.id} className="modal">
-            <div className="modal-content">
+        <div id={MODALS.SIGNUP.id} className="overlay">
+            <div className="modal-content-auth">
                 <span className="close" onClick={()=>closeModal(MODALS.SIGNUP.id)}>&times;</span>
                 <h3>Join ThirstyOasis</h3>
                 <form>
@@ -23,13 +23,11 @@ export default function Signup(){
                     </div>
 
                     <label htmlFor="signup-number">Phone Number</label>
-                    <div className="phone">
-                        <input type="tel" id="signup-number" name="signup-number" required placeholder="Number"/>
-                    </div>
+                    <input type="tel" id="signup-number" name="signup-number" required placeholder="Number"/>
 
-                    <div className="option-buttons">
-                        <button className="streamer-btn">I am a Streamer</button>
-                        <button className="fun-btn">I am here to have Fun</button>
+                    <div className="role-options">
+                        <button type="button" className="role-btn role-btn-selected">I am a Streamer</button>
+                        <button type="button" className="role-btn">I am here to have Fun</button>
                     </div>
 
                     <div className="info">

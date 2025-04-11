@@ -1,11 +1,11 @@
 import logo from "../../assets/ThirstyOasis.png"
 import NavBar from "./components/NavBar/NavBar";
-import LoginActions from "./components/UserActions/ActionsContainer/LoginActions";
-import SessionActions from "./components/UserActions/ActionsContainer/SessionActions";
+import LoginActions from "./components/UserActions/LoginActions";
+import SessionActions from "./components/UserActions/SessionActions";
 import toggleMenu from "./utils/toggleMenu";
 
 
-export default function Header({isAuth, credits}: SessionProps){
+export default function Header({isAuth, credits, setModalKey}: SessionProps & SetModalProps){
 
     return (
         <header className="header">
@@ -22,9 +22,9 @@ export default function Header({isAuth, credits}: SessionProps){
                 <NavBar/>
 
                 {isAuth? 
-                    <SessionActions credits={credits}/>
+                    <SessionActions credits={credits} setModalKey={setModalKey}/>
                     : 
-                    <LoginActions/>
+                    <LoginActions setModalKey={setModalKey}/>
                 }
 
             </div>

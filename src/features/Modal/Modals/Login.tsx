@@ -1,11 +1,11 @@
-import { MODALS } from "./config/modalsConfig";
-import closeModal from "./utils/closeModal";
+import { MODALS } from "../config/modalsConfig";
+import closeModal from "../utils/closeModal";
 
 export default function Login(){
     
     return (
-        <div id={MODALS.LOGIN.id} className="modal">
-        <div className="modal-content">
+        <div id={MODALS.LOGIN.id} className="overlay">
+        <div className="modal-content-auth">
             <span className="close" onClick={()=>closeModal(MODALS.LOGIN.id)}>&times;</span>
             <h3>Log in to ThirstyOasis</h3>
             <form>

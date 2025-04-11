@@ -1,5 +1,5 @@
-import { MODALS } from "./config/modalsConfig";
-import closeModal from "./utils/closeModal";
+import { MODALS } from "../config/modalsConfig";
+import closeModal from "../utils/closeModal";
 
 export default function BuyNow(){
 

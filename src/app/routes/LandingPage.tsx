@@ -4,8 +4,10 @@ import Slider from "../../features/Slider/Slider";
 import AgreementOverlay from "../../features/Overlay/AgreementOverlay";
 import LiveChannels from "../../features/LiveChannels/LiveChannels";
 import Footer from "../../features/Footer/Footer";
+import Modal from "../../features/Modal/Modal";
 
-export default function LandingPage ({isAuth, credits}:SessionProps) {
+
+export default function LandingPage ({isAuth, credits, modalKey, setModalKey}:SessionProps & ModalProps) {
 
     document.title = (isAuth)? "ThirstyOasis":"Welcome"
 
@@ -17,7 +19,9 @@ export default function LandingPage ({isAuth, credits}:SessionProps) {
 
             <AgreementOverlay />
 
-            <Header isAuth={isAuth} credits={credits}/>
+            <Modal modalKey={modalKey}/>
+
+            <Header isAuth={isAuth} credits={credits} setModalKey={setModalKey}/>
            
             <Slider/>
 
