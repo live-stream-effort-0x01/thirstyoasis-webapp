@@ -4,8 +4,7 @@ import { ACTION_BUTTON_STYLES } from "../../../../config/buttonsConfig/buttonSty
 export default function LoginActions({setModalKey}: SetModalProps){
     
     return (
-        <ul className="header__nav-list header__nav-list--right" 
-            aria-label="Auth actions">
+        <ul className="header__nav-list" aria-label="Auth actions">
 
             <li className={ACTION_BUTTON_STYLES.SECONDARY}
                 onClick={()=>setModalKey("LOGIN")}>

@@ -3,8 +3,7 @@ import { ACTION_BUTTON_STYLES } from "../../../../config/buttonsConfig/buttonSty
 export default function SessionActions({credits, setModalKey}: CreditProps & SetModalProps){
 
     return (
-        <ul className="header__nav-list header__nav-list--right"
-            aria-label="User actions">
+        <ul className="header__nav-list" aria-label="User actions">
 
             <li className={ACTION_BUTTON_STYLES.SECONDARY}
                 onClick={()=>setModalKey("STREAM_NOW")}>
