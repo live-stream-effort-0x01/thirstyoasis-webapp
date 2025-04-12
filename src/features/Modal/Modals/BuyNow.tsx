@@ -4,7 +4,7 @@ import closeModal from "../utils/closeModal";
 export default function BuyNow(){
 
     return (
-        <div id="buy-now-modal" className="buy-now-modal">
+        <div id="buy-now-modal" className="overlay">
             <div className="buy-now-modal-content">
                 <div className="buy-now-modal-header">
                     <h3>Pay With</h3>

@@ -5,7 +5,7 @@ import openModal from "../utils/openModal";
 export default function BuyTokens(){
 
     return (
-        <div id="buy-tokens-modal" className="buy-tokens-modal">
+        <div id="buy-tokens-modal" className="overlay">
             <div className="buy-tokens-modal-content">
                 <div className="buy-tokens-modal-close-container"><span className="buy-tokens-close"
                         onClick={()=>closeModal(MODALS.BUY_TOKENS.id)}>&times;</span>

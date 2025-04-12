@@ -21,12 +21,14 @@ body {
 }
 
 .header {
-    background-color: var(--bg-tertiary);
+    background-color: var(--bg-primary);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    border-bottom: 1px solid var(--gray);
+    border-bottom: 1px solid #0f0f0f;
+
+    /* box-shadow: 0 4px 5px -4px #000; */
 }
 
 .header__logo {
@@ -95,6 +97,8 @@ body {
     height: 300px; /* Default height */
     position: relative; /* This is used to position the nav arrows which are at the bottom of the swiper by default */
     overflow: hidden;
+
+    margin-top: 20px;
 }
 
 .swiper-slide img {
@@ -909,3 +913,281 @@ body {
     }
   
   }
+
+/* Buy Tokens Modal */ 
+  .buy-tokens-modal-content {
+    background-color: var(--bg-primary);
+    margin: 3% auto;
+    padding: 30px;
+    border: 1px solid var(--gray);
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 10px;
+  }
+  
+  .buy-tokens-modal-close-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .buy-tokens-modal-header {
+    text-align: center;
+  }
+  .buy-tokens-modal-header h1 {
+    color: var(--bg-secondary);
+  }
+  
+  .buy-tokens-modal-header p {
+    color: var(--text-primary);
+  }
+  
+  .buy-tokens-close {
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .buy-tokens-modal-body {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  
+  .buy-tokens-modal-body .pricing-card {
+    width: 200px;
+    text-align: center;
+    padding: 50px;
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .buy-tokens-modal-body .pricing-card--standard {
+    background-color: var(--text-secondary);
+    color: var(--bg-secondary);
+    box-shadow: 0 4px 10px rgba(14, 145, 84, 0.623);
+  }
+  
+  .buy-tokens-modal-body .pricing-card--popular {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    box-shadow: 0 4px 10px rgba(14, 145, 84, 0.623);
+  }
+  
+  .buy-tokens-modal-body .badge {
+    background-color: white;
+    color: var(--bg-secondary);
+    padding: 5px 15px;
+    font-size: 14px;
+    border-radius: 7px;
+    border: 1px solid var(--bg-secondary);
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .buy-tokens-modal-body .standard-header {
+    color: var(--text-primary);
+  }
+  
+  .buy-tokens-modal-body .price,
+  .buy-tokens-modal-body .price-standard {
+    font-size: 64px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .buy-tokens-modal-body .price small {
+    font-size: 14px;
+    display: block;
+    margin-top: -5px;
+    font-weight: lighter;
+  }
+  .buy-tokens-modal-body .price strong {
+    font-size: 24px;
+    display: block;
+  }
+  
+  .buy-tokens-modal-body .price-standard small {
+    font-size: 14px;
+    display: block;
+    margin-top: -5px;
+    color: var(--text-primary);
+    font-weight: lighter;
+  }
+  
+  .buy-tokens-modal-body .price-standard strong {
+    font-size: 24px;
+    display: block;
+    color: var(--text-primary);
+  }
+  
+  .buy-tokens-modal-body .standard-buy-button,
+  .buy-tokens-modal-body .popular-buy-button {
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 15px 0;
+  }
+  .buy-tokens-modal-body .standard-buy-button {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+  
+  .buy-tokens-modal-body .popular-buy-button {
+    background-color: var(--text-secondary);
+    color: var(--bg-secondary);
+  }
+  
+  .buy-tokens-modal-body .features {
+    text-align: left;
+    margin-top: 15px;
+  }
+  
+  .buy-tokens-modal-body .features,
+  .buy-tokens-modal-body .features-standard h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .buy-tokens-modal-body .features ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .buy-tokens-modal-body .features ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .buy-tokens-modal-body .features-standard {
+    color: var(--text-primary);
+  }
+  
+  .buy-tokens-modal-body .features-standard ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  .buy-tokens-modal-body .features-standard ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .buy-tokens-modal-body .bottom-icon {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-secondary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .buy-tokens-modal-body .bottom-icon i {
+    color: var(--text-secondary);
+  }
+
+
+/* Buy Now modal */
+  .buy-now-modal-content {
+    background-color: var(--bg-primary);
+    margin: 7% auto;
+    padding: 20px;
+    border: 1px solid var(--gray);
+    width: 100%;
+    max-width: 600px;
+    border-radius: 30px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .buy-now-modal-header {
+    position: relative;
+    padding: 10px 0;
+  }
+  
+  .buy-now-modal-header h3 {
+    margin: 0;
+    text-align: center;
+    font-size: 29px;
+  }
+  
+  .buy-now-close {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--bg-secondary);
+  }
+  
+  .buy-now-modal-content .payment-options {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+  }
+  
+  .buy-now-modal-content .option-card,
+  .buy-now-modal-content .option-bitcoin {
+    width: 220px;
+    height: 220px;
+    border: 1px solid #00a650;
+    border-radius: 27px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .buy-now-modal-content .option-card:hover {
+    border: 2px solid #00a650;
+  }
+  
+  .buy-now-modal-content .option-bitcoin:hover {
+    border: 2px solid #00a650;
+  }
+  
+  .buy-now-modal-content .option-card i {
+    font-size: 102px;
+    color: #00a650;
+    transform: rotate(-15deg);
+  }
+  
+  .buy-now-modal-content .option-card i:hover {
+    transform: rotate(0deg);
+  }
+  .buy-now-modal-content .option-bitcoin i {
+    font-size: 102px;
+    color: #00a650;
+    transform: rotate(-30deg);
+  }
+  
+  .buy-now-modal-content .option-bitcoin i:hover {
+    transform: rotate(-15deg);
+  }
+  
+  .buy-now-modal-content .option-card:hover p,
+  .buy-now-modal-content .option-bitcoin:hover p {
+    transform: translateY(-10px);
+  }
+  
+  .buy-now-modal-content .option-card p,
+  .buy-now-modal-content .option-bitcoin p {
+    font-size: 25px;
+    color: #00a650;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+  
