@@ -1,4 +1,4 @@
-import ChannelCard from "./ChannelCard/ChannelCard"
+import ChannelCard from "../ChannelCard/ChannelCard"
 
 export default function ChannelsGrid(){
 

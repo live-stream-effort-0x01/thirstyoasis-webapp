@@ -281,6 +281,18 @@ body {
     max-width: 400px;
     /* overflow: hidden; */
     /* text-align: center; */
+
+    transition: all 0.5s;
+}
+
+.card > a {
+    text-decoration: none;
+    color: var(--text-primary)
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: all 0.5s;
 }
 
 .card__image {

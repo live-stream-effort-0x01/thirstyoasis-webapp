@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import logo from "../../assets/ThirstyOasis.png"
 import NavBar from "./components/NavBar/NavBar";
 import LoginActions from "./components/UserActions/LoginActions";
@@ -11,7 +12,9 @@ export default function Header({isAuth, credits, modalKey, setModalKey}: Session
         <header className="header">
 
             <div className="header__menu">
-                <img src={logo} alt="logo" className="header__logo" />
+                <Link to="/">
+                    <img src={logo} alt="logo" className="header__logo" />
+                </Link>
 
                 <div className="hamburger-menu" onClick={()=>toggleMenu()}>
                     <i className="fas fa-bars"></i>

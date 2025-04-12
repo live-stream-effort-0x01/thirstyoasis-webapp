@@ -5,6 +5,8 @@ import AgreementOverlay from "../../features/Overlay/AgreementOverlay";
 import LiveChannels from "../../features/LiveChannels/LiveChannels";
 import Footer from "../../features/Footer/Footer";
 import Modal from "../../features/Modal/Modal";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import useCloseModalOnPageLoad from "../../features/Modal/hooks/useCloseModalOnPageLoad";
 
 
 export default function LandingPage ({isAuth, credits, modalKey, setModalKey}:SessionProps & ModalProps) {
@@ -12,6 +14,8 @@ export default function LandingPage ({isAuth, credits, modalKey, setModalKey}:Se
     document.title = (isAuth)? "ThirstyOasis":"Welcome"
 
     useFixStylesheetOrder();
+    useScrollToTop();
+    useCloseModalOnPageLoad(setModalKey);
 
 
     return (
