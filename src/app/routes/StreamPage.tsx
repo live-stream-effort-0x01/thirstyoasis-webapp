@@ -1,15 +1,15 @@
 import Header from "../../features/Header/Header"
 
 
-export default function StreamPage ({isAuth, credits}:SessionProps) {
+export default function StreamPage ({isAuth, credits, modalKey, setModalKey}:SessionProps & ModalProps) {
 
     document.title = "ThirstyOasis - Stream"
 
     return (
         <div className="container">
-            <Header isAuth={isAuth} credits={credits}/>
+            <Header isAuth={isAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>
 
-            <main className="main">
+            <main className="stream-main">
 
                 <div className="content-container">
                     <div className="main-content">
@@ -35,9 +35,18 @@ export default function StreamPage ({isAuth, credits}:SessionProps) {
                                 </div>
                             </div>
                             <div className="buttons">
-                                {/* <button className="btn follow-btn"><i className="fa-solid fa-camera-retro"></i> Private Call</i></button>
-                                <button className="btn subscribe-btn"><i className="fa-solid fa-heart"></i> Follow</button>
-                                <button className="btn donate-btn"><i className="fa-solid fa-star"></i> Subscribe</button> */}
+                                <button className="btn follow-btn">
+                                    <i className="fa-solid fa-camera-retro"></i>Private Call
+                                </button>
+                                
+                                <button className="btn subscribe-btn">
+                                    <i className="fa-solid fa-heart"></i> Follow
+                                </button>
+                                
+                                <button className="btn donate-btn">
+                                    <i className="fa-solid fa-star"></i> Subscribe
+                                </button>
+
                             </div>
                         </section>
 
@@ -46,6 +55,7 @@ export default function StreamPage ({isAuth, credits}:SessionProps) {
                         </div>
 
                     </div>
+                    
                     <aside className="sidebar-chat">
                         <div className="chat-header">
                             <h3> STREAM CHAT</h3>

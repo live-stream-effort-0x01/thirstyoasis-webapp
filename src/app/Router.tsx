@@ -26,7 +26,7 @@ export default function Router() {
         
         <Route  path="/stream" 
                 element={isAuth? 
-                    <StreamPage isAuth={isAuth} credits={credits}/> 
+                    <StreamPage isAuth={isAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/> 
                     : 
                     <Navigate to="/" replace/>} 
         />
