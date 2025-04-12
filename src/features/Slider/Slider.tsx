@@ -7,6 +7,10 @@ export default function Slider() {
     return(
         <div className="swiper-container">
             <div className="swiper-wrapper">
+                {/* empty slider */}
+                <div className="swiper-slide">
+                </div>
+                
                 <div className="swiper-slide">
                     <img
                         src="https://th.bing.com/th/id/OIP.xG-Kyw5fm98NX5XJk_gzRwHaE7?w=626&h=417&rs=1&pid=ImgDetMain"
@@ -38,7 +42,12 @@ export default function Slider() {
                     <img src="https://images.pexels.com/photos/5066274/pexels-photo-5066274.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="Slide 7"/>
                 </div>
+                
+                {/* empty slider */}
+                <div className="swiper-slide">
+                </div>
             </div>
+
 
             {/* <!-- Add Navigation --> */}
             <div className="swiper-button-prev"></div>

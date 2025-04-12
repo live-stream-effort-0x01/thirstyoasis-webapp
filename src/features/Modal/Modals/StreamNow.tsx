@@ -5,8 +5,8 @@ import selectPriceOption from "../utils/selectPriceOption";
 export default function StreamNow(){
 
     return (
-        <div id={MODALS.STREAM_NOW.id} className="modal">
-            <div className="modal-content">
+        <div id={MODALS.STREAM_NOW.id} className="overlay">
+            <div className="stream-now-modal-content">
                 <div className="modal-header">
                     <h2>Start Your Stream</h2>
                     <span className="close" onClick={()=>closeModal(MODALS.STREAM_NOW.id)}>&times;</span>

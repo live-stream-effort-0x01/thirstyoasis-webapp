@@ -17,7 +17,7 @@ export default function useSetupSwiper() {
                     prevEl: '.swiper-button-prev',
                 },
                 autoplay: {
-                    delay: 2000, // Delay between slides in milliseconds (3 seconds)
+                    delay: 3000, // Delay between slides in milliseconds (3 seconds)
                     disableOnInteraction: false, // Continue autoplay after user interactions
                 },
                 breakpoints: {

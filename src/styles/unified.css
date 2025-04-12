@@ -121,10 +121,26 @@ body {
     
 }
 
+/* Center slide */
+.swiper-slide-next {
+    width: 50% !important;
+    margin: 0 30px !important;
+}
+
+/* Left slide */
+.swiper-slide-active{
+    width: 21% !important;
+}
+
+.swiper-slide-active,
+.swiper-slide-active + .swiper-slide + .swiper-slide {
+    filter: blur(3px);
+}
+
 /* fallback */
 .swiper-button-prev,
 .swiper-button-next {
-    color: var(--bg-secondary); /* Adjust the color as needed */
+    color: var(--bg-secondary) !important; 
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -619,6 +635,14 @@ body {
         height: 200px; /*300->200*/
     }
 
+    .swiper-slide-next {
+        width: 100% !important;
+        margin: 0 !important; 
+    }
+    .swiper-slide-active {
+        width: 0px !important;
+    }
+
     .tag,
     .card__price {
         font-size: 14px; /*16->14*/
@@ -679,3 +703,209 @@ body {
     }
 }
 
+
+/* Stream Now modal */
+
+.stream-now-modal-content {
+    background-color: var(--bg-tertiary);
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 85%;
+  }
+  .stream-now-modal-content .modal-header h2 {
+    color: var(--bg-secondary);
+  }
+  .stream-now-modal-content .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .stream-now-modal-content .modal-columns {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .stream-now-modal-content .modal-column {
+    width: 48%;
+  }
+  
+  .stream-now-modal-content .webcam-preview {
+    width: 325px;
+    height: 206px;
+    background-color: transparent;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--bg-secondary);
+  }
+  
+  .stream-now-modal-content .webcam-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .stream-now-modal-content label,
+  .stream-now-modal-content .tag-label {
+    display: block;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .stream-now-modal-content select {
+    width: 325px;
+    padding: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    height: 40px;
+    border: 2px solid var(--bg-secondary);
+    border-radius: 5px;
+    background-color: transparent;
+  }
+  
+  .stream-now-modal-content .stream-title-input,
+  .stream-now-modal-content .stream-textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    border-radius: 5px;
+    border: 2px solid var(--bg-secondary);
+    font-size: 16px;
+    background-color: transparent;
+  }
+  
+  .stream-now-modal-content .stream-title-input,
+  .stream-now-modal-content .stream-price-input {
+    height: 47px;
+  }
+  
+  .stream-now-modal-content .stream-textarea {
+    height: 157px;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .stream-now-modal-content textarea {
+    height: 100px; /* Adjust the height as needed */
+    resize: vertical; /* Allow vertical resizing */
+  }
+  
+  .stream-now-modal-content .start-stream-tag {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 10px 10px;
+    border-radius: 50px;
+    font-size: 13px;
+    margin-right: 10px;
+  }
+  
+  .stream-now-modal-content .steam-price-selection {
+    margin-top: 20px;
+  }
+  
+  .stream-now-modal-content .steam-price-selection label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--text-primary);
+  }
+  
+  .stream-now-modal-content .price-options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .stream-now-modal-content .price-option {
+    padding: 10px 20px;
+    border: 2px solid var(--bg-secondary);
+    color: var(--bg-secondary);
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .stream-now-modal-content .price-option:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+  
+  .stream-now-modal-content .price-option.active {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+  
+  .stream-now-modal-content .start-stream-button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: var(--bg-secondary);
+    border: none;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+/* Mobile Devices */
+@media (max-width: 599px) {
+    .stream-now-modal-content .modal-content {
+      width: 90%;
+      padding: 10px;
+    }
+  
+    .stream-now-modal-content .modal-columns {
+      flex-direction: column;
+    }
+  
+    .stream-now-modal-content .modal-column {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .stream-now-modal-content .webcam-preview {
+      width: 100%;
+      height: 20%;
+    }
+  
+    .stream-now-modal-content .stream-title-input,
+    .stream-now-modal-content .stream-textarea,
+    .stream-now-modal-content .stream-price-input,
+    .stream-now-modal-content select {
+      width: 100%;
+    }
+   
+  }
+  
+  /* Tablets */
+  @media (min-width: 600px) and (max-width: 899px) {
+      .stream-now-modal-content .modal-content {
+      width: 80%;
+      padding: 20px;
+    }
+  
+    .stream-now-modal-content .modal-columns {
+      flex-direction: column;
+    }
+  
+    .stream-now-modal-content .modal-column {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .stream-now-modal-content .webcam-preview {
+      width: 100%;
+      height: auto;
+    }
+  
+    .stream-now-modal-content .stream-title-input,
+    .stream-now-modal-content .stream-textarea,
+    .stream-now-modal-content .stream-price-input,
+    .stream-now-modal-content select {
+      width: 100%;
+    }
+  
+  }

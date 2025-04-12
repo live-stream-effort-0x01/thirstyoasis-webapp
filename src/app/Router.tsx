@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from 'react-router'
-import Test from './routes/test_migration/Test'
 import LandingPage from './routes/LandingPage'
 import StreamPage from './routes/StreamPage'
 import NotFoundPage from './routes/NotFoundPage'
@@ -12,7 +11,7 @@ import "../styles/unified.css"
 export default function Router() {
 
     //this can be moved to a context or state library
-    const [isAuth, setIsAuth] = useState<boolean>(false);
+    const [isAuth, setIsAuth] = useState<boolean>(true);
     const [credits, setCredits] = useState<number>(5600);
     const [modalKey, setModalKey] = useState<ModalKey|null>(null);
 
