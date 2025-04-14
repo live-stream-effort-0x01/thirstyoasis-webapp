@@ -10,7 +10,7 @@ type CreditProps = {
 type SessionProps = AuthProps & CreditProps;
 
 
-type ModalKey = "SIGNUP" | "LOGIN" | "STREAM_NOW" | "BUY_TOKENS" | "BUY_NOW";
+type ModalKey = "SIGNUP" | "LOGIN" | "STREAM_NOW" | "BUY_TOKENS" | "BUY_NOW" | "PROFILE";
 
 type ModalData= {
     id: string,

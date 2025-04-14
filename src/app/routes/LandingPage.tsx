@@ -17,7 +17,6 @@ export default function LandingPage ({isAuth, credits, modalKey, setModalKey}:Se
     useScrollToTop();
     useCloseModalOnPageLoad(setModalKey);
 
-
     return (
         <div className="container">
 
