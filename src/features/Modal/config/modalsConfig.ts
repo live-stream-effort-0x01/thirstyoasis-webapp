@@ -19,5 +19,9 @@ export const MODALS: Record<ModalKey, ModalData> = {
     BUY_NOW: {
         id: "buy-now-modal",
         displayStyle: "block"
-    }
+    },
+    PROFILE: {
+        id: "profile-modal",    
+        displayStyle: "block"
+    },
 }

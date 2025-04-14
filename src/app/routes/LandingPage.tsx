@@ -13,7 +13,6 @@ export default function LandingPage ({isAuth, credits, modalKey, setModalKey}:Se
 
     useFixStylesheetOrder();
 
-
     return (
         <div className="container">
 
