@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function ProfileSubscription() {
 
     return (
@@ -17,7 +19,9 @@ export default function ProfileSubscription() {
                 <p>Next billing date: <span>12/12/2023</span></p>
             </div>
             <div className="subscription-buttons-container">
-                <button className="change-subscription-btn">Cancel Subscription</button>
+                <Link to="/">
+                    <button className="change-subscription-btn">Cancel Subscription</button>
+                </Link>
                 <button className="cancel-plan-btn">Change Plan</button>
             </div>
         </div>

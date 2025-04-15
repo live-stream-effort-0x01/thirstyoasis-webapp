@@ -1,7 +1,13 @@
+declare var Swiper: any;
+
 
 type AuthProps= {
     isAuth: boolean
 };
+
+type setAuthProps = {
+    setIsAuth: React.Dispatch<React.SetStateAction<boolean>>
+}
 
 type CreditProps = {
     credits?: number
@@ -16,8 +22,6 @@ type ModalData= {
     id: string,
     displayStyle: string
 };
-
-type ButtonTypeKey = "PRIMARY" | "SECONDARY";
 
 
 // Modal

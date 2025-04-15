@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+// import React from 'react'
+// import PropTypes from 'prop-types'
 
-export default (WrappedComponent) => {
-  const hocComponent = ({ ...props }) => <WrappedComponent {...props} />
+// export default (WrappedComponent) => {
+//   const hocComponent = ({ ...props }) => <WrappedComponent {...props} />
 
-  hocComponent.propTypes = {}
+//   hocComponent.propTypes = {}
 
-  return hocComponent
-}
+//   return hocComponent
+// }

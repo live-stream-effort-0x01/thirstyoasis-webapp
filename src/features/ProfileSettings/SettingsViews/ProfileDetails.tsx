@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import avatar from '../../../assets/avatar.jpg'
+import { Link } from 'react-router'
 export default function ProfileDetails() {
   const [username, setUsername] = useState('Nix')
   const [email, setEmail] = useState('nixsmith@gmail.com')
@@ -49,7 +50,9 @@ export default function ProfileDetails() {
       </textarea>
 
       <div className="profile-buttons-container">
-        <button className="profile-btn-cancel">Cancel</button>
+        <Link to="/">
+            <button className="profile-btn-cancel">Cancel</button>
+        </Link>
         <button className="profile-btn-save">Save Changes</button>
       </div>
     </div>

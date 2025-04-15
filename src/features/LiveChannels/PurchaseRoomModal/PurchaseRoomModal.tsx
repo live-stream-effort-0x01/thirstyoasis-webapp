@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { MODALS } from "../../Modal/config/modalsConfig";
 import closeModal from "../../Modal/utils/closeModal";
 
@@ -22,7 +23,9 @@ export default function PurchaseRoomModal({ thumbnailUrl, thumbnailAlt, title }:
                 <div className="modal-body">
                     <img alt={thumbnailAlt} src={thumbnailUrl}  className="modal-image" />
                     <p>Purchase access to this room for exclusive content!</p>
-                    <button className="header__nav-item--primary">Purchase</button>
+                    <Link to="/stream">
+                        <button className="header__nav-item--primary">Purchase</button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ import toggleMenu from "./utils/toggleMenu";
 
 
 export default function Header(
-    {isAuth, credits, modalKey, setModalKey}: SessionProps & ReadModalProps & SetModalProps
+    {isAuth, setIsAuth, credits, modalKey, setModalKey}: SessionProps & setAuthProps & ReadModalProps & SetModalProps
 ){
 
     return (
@@ -27,7 +27,7 @@ export default function Header(
                 <NavBar/>
 
                 {isAuth? 
-                    <SessionActions credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>
+                    <SessionActions setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey} />
                     : 
                     <LoginActions modalKey={modalKey} setModalKey={setModalKey}/>
                 }

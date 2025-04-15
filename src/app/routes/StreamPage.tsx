@@ -7,7 +7,7 @@ import useScrollToTop from "../../hooks/useScrollToTop"
 
 
 export default function StreamPage (
-    {isAuth, credits, modalKey, setModalKey}:SessionProps & SetModalProps & ReadModalProps
+    {isAuth, setIsAuth, credits, modalKey, setModalKey}:SessionProps & setAuthProps & SetModalProps & ReadModalProps
 ) {
 
     document.title = "ThirstyOasis - Stream"
@@ -20,7 +20,7 @@ export default function StreamPage (
 
             <Modal modalKey={modalKey} setModalKey={setModalKey}/>
 
-            <Header isAuth={isAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>
+            <Header isAuth={isAuth} setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>
 
             <main className="stream-main">
 

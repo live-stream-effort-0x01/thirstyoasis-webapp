@@ -13,12 +13,13 @@ import PurchaseRoomModal from "../../features/LiveChannels/PurchaseRoomModal/Pur
 
 
 export default function LandingPage (
-    {isAuth, credits, modalKey, setModalKey}:SessionProps & ReadModalProps & SetModalProps
+    {isAuth, setIsAuth, credits, modalKey, setModalKey}:SessionProps & setAuthProps & ReadModalProps & SetModalProps
 ) {
 
     document.title = (isAuth)? "ThirstyOasis":"Welcome"
 
-    const {roomsArray, setRoomsArray} = useFillRoomsTEST();
+    // const {roomsArray, setRoomsArray} = useFillRoomsTEST();
+    const {roomsArray} = useFillRoomsTEST();
     const [clickedRoom, setClickedRoom] = useState<RoomData>();//used to trigger PurchaseRoom modal
 
     useFixStylesheetOrder();
@@ -32,7 +33,7 @@ export default function LandingPage (
 
             <Modal modalKey={modalKey} setModalKey={setModalKey} />
 
-            <Header isAuth={isAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>
+            <Header isAuth={isAuth} setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>
            
             <Slider/>
 

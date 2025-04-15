@@ -1,4 +1,3 @@
-import { ACTION_BUTTON_STYLES } from "../../../../config/buttonsConfig/buttonStyleConfig";
 import handleModalClick from "../../../Modal/utils/handleModalClick";
 
 
@@ -7,14 +6,14 @@ export default function LoginActions(
 ){
     
     return (
-        <ul className="header__nav-list" aria-label="Auth actions">
+        <ul className="header__nav-list header__nav-list--auth" aria-label="Auth actions">
 
-            <li className={ACTION_BUTTON_STYLES.SECONDARY}
+            <li className="header__nav-item header__nav-item--secondary"
                 onClick={()=>handleModalClick("LOGIN", {modalKey, setModalKey})}>
                 Login
             </li>
 
-            <li className={ACTION_BUTTON_STYLES.PRIMARY}
+            <li className="header__nav-item header__nav-item--primary"
                 onClick={()=>handleModalClick("SIGNUP", {modalKey, setModalKey})}>
                 Sign Up
             </li>

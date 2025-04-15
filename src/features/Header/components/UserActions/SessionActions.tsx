@@ -1,12 +1,12 @@
-import { ACTION_BUTTON_STYLES } from "../../../../config/buttonsConfig/buttonStyleConfig";
 import handleModalClick from "../../../Modal/utils/handleModalClick";
 import avatar from '../../../../assets/avatar.jpg'
+import token_coins from "../../../../assets/token_coins.svg"
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
 export default function SessionActions(
-    {credits, modalKey, setModalKey}: CreditProps & ReadModalProps & SetModalProps
+    {setIsAuth, credits, modalKey, setModalKey}: setAuthProps & CreditProps & ReadModalProps & SetModalProps
 ){
     
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -19,6 +19,7 @@ export default function SessionActions(
     const handleLogout = () => {
       console.log("User logged out");
       // logout logic here
+      setIsAuth(false);
     };
     
     const handleProfileClick = () => {
@@ -26,23 +27,23 @@ export default function SessionActions(
     };
     
     return (
-        <ul className="header__nav-list" aria-label="User actions">
+        <ul className="header__nav-list header__nav-list--right" aria-label="User actions">
 
-            <li className={ACTION_BUTTON_STYLES.SECONDARY}
+            <li className="header__nav-item header__nav-item--secondary"
                 onClick={()=>handleModalClick("STREAM_NOW", {modalKey, setModalKey})}>
                 Stream Now
             </li>
 
-            <li className={ACTION_BUTTON_STYLES.PRIMARY}
+            <li className="header__nav-item header__nav-item--primary"
                 onClick={()=>handleModalClick("BUY_TOKENS", {modalKey, setModalKey})}>
                 Buy Tokens
             </li>
 
-            <li className={ACTION_BUTTON_STYLES.SECONDARY}
+            <li className="header__nav-item header__nav-item--secondary header__nav-item--tertiary"
                 onClick={()=>handleModalClick("BUY_NOW", {modalKey, setModalKey})}>
-                <i className="fas fa-coins"></i> {credits}
+                <img src={token_coins} alt="token coins"/>{credits}
             </li>
-            <li className="header__nav-list ">
+            <li>
         <button
           className="avatar-button"
           onClick={toggleDropdown}
@@ -61,7 +62,9 @@ export default function SessionActions(
               />
               <p className="dropdown-profile-name">Jane Doe</p>
             </div>
+
             <button className="dropdown-item" onClick={handleProfileClick}>Settings</button>
+            
             <button className="dropdown-item" onClick={handleLogout}>
               Logout
             </button>

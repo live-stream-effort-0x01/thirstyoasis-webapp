@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function ProfileSecurity() {
     return (
  
@@ -25,7 +27,9 @@ export default function ProfileSecurity() {
         </div>
 
         <div className="security-buttons-container">
-        <button className="security-btn-cancel">Cancel</button>
+        <Link to="/">
+            <button className="security-btn-cancel">Cancel</button>
+        </Link>
         <button className="security-btn-save">Save Changes</button>
       </div>
         </div>
