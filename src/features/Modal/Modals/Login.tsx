@@ -2,7 +2,7 @@ import { MODALS } from "../config/modalsConfig";
 import closeModal from "../utils/closeModal";
 import handleModalClick from "../utils/handleModalClick";
 
-export default function Login({modalKey, setModalKey}:ModalProps){
+export default function Login({modalKey, setModalKey}:ReadModalProps & SetModalProps){
     
     return (
         <div id={MODALS.LOGIN.id} className="overlay">

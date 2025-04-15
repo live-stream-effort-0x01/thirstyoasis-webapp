@@ -1,10 +1,10 @@
-import visa from '../../assets/visa.png'
-import mastercard from '../../assets/mastercard.png'
-import paypal from '../../assets/paypal.png'
-import wallet from '../../assets/wallet.png'
+import visa from '../../../assets/visa.png'
+import mastercard from '../../../assets/mastercard.png'
+import paypal from '../../../assets/paypal.png'
+import wallet from '../../../assets/wallet.png'
 
 
-export default function ProfilePayment ({ isAuth, credits }: SessionProps){
+export default function ProfilePayment (){
   return (
 
   <div className="payment-card profile-tab-card">

@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import avatar from '../../assets/avatar.jpg'
-export default function ProfileDetails({ isAuth, credits }: SessionProps) {
+import avatar from '../../../assets/avatar.jpg'
+export default function ProfileDetails() {
   const [username, setUsername] = useState('Nix')
   const [email, setEmail] = useState('nixsmith@gmail.com')
   const [state, setState] = useState('Chicago, Illinois')

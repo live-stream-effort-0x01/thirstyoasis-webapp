@@ -24,4 +24,8 @@ export const MODALS: Record<ModalKey, ModalData> = {
         id: "profile-modal",    
         displayStyle: "block"
     },
+    PURCHASE_ROOM: {
+        id: "purchase-room-modal",
+        displayStyle: "block"
+    }
 }

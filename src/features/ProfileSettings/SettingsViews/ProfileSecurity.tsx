@@ -1,4 +1,4 @@
-export default function ProfileSecurity({ isAuth, credits }: SessionProps) {
+export default function ProfileSecurity() {
     return (
  
          <div className="security-card profile-tab-card">

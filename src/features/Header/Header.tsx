@@ -6,7 +6,9 @@ import SessionActions from "./components/UserActions/SessionActions";
 import toggleMenu from "./utils/toggleMenu";
 
 
-export default function Header({isAuth, credits, modalKey, setModalKey}: SessionProps & ModalProps){
+export default function Header(
+    {isAuth, credits, modalKey, setModalKey}: SessionProps & ReadModalProps & SetModalProps
+){
 
     return (
         <header className="header">

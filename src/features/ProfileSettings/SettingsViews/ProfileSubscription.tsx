@@ -1,4 +1,4 @@
-export default function ProfileSubscription({ isAuth, credits }: SessionProps) {
+export default function ProfileSubscription() {
 
     return (
         <div className="subscription-card profile-tab-card">

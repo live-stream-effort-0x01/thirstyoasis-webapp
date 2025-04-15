@@ -2,7 +2,9 @@ import { ACTION_BUTTON_STYLES } from "../../../../config/buttonsConfig/buttonSty
 import handleModalClick from "../../../Modal/utils/handleModalClick";
 
 
-export default function LoginActions({modalKey, setModalKey}: ModalProps){
+export default function LoginActions(
+    {modalKey, setModalKey}: ReadModalProps & SetModalProps
+){
     
     return (
         <ul className="header__nav-list" aria-label="Auth actions">

@@ -5,7 +5,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function SessionActions({credits, modalKey, setModalKey}: CreditProps & ModalProps){
+export default function SessionActions(
+    {credits, modalKey, setModalKey}: CreditProps & ReadModalProps & SetModalProps
+){
+    
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const navigate = useNavigate();
     

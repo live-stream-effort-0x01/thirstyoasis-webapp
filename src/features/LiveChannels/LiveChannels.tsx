@@ -2,7 +2,7 @@ import ChannelsGrid from "./ChannelsGrid/ChannelsGrid";
 import SearchBar from "./SearchBar/SearchBar";
 import TagsContainer from "./Tags/TagsContainer";
 
-export default function LiveChannels(){
+export default function LiveChannels({roomsArray, setClickedRoom}:ChannelGridProps){
     
     return (
     <>
@@ -15,7 +15,7 @@ export default function LiveChannels(){
             <span className="section-header__sub">you might be interested in</span>
         </div>
 
-        <ChannelsGrid/>
+        <ChannelsGrid roomsArray={roomsArray} setClickedRoom={setClickedRoom}/>
     
     </>
     )

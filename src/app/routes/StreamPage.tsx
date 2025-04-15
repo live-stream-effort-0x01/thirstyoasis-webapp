@@ -6,7 +6,9 @@ import StreamPanel from "../../features/StreamPanel/StreamPanel"
 import useScrollToTop from "../../hooks/useScrollToTop"
 
 
-export default function StreamPage ({isAuth, credits, modalKey, setModalKey}:SessionProps & ModalProps) {
+export default function StreamPage (
+    {isAuth, credits, modalKey, setModalKey}:SessionProps & SetModalProps & ReadModalProps
+) {
 
     document.title = "ThirstyOasis - Stream"
 

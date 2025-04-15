@@ -2,10 +2,10 @@ import { Navigate, Route, Routes } from 'react-router'
 import LandingPage from './routes/LandingPage'
 import StreamPage from './routes/StreamPage'
 import NotFoundPage from './routes/NotFoundPage'
-import ProfilePage from './ProfilePage'
+import ProfilePage from './routes/ProfilePage'
 import { useState } from 'react'
 
-// import "../styles/globals.css"
+
 import "../styles/unified.css"
 
 //renamed from App.tsx to Router.tsx
@@ -18,9 +18,7 @@ export default function Router() {
 
   return (
     <>
-    <Routes>
-        {/* <Route path="/test" element={<Test />} /> */}
-        
+    <Routes>       
         <Route path="/" 
             element={<LandingPage isAuth={isAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>} 
         />
@@ -32,10 +30,12 @@ export default function Router() {
                     <Navigate to="/" replace/>} 
         />
 
-        <Route path="/" element={<LandingPage isAuth={isAuth} credits={credits} />} />
+        <Route path="/profile" 
+               element={isAuth ? 
+                <ProfilePage isAuth={isAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey} /> 
+                : 
+                <Navigate to="/" replace />} />
 
-        <Route path="/stream" element={isAuth ? <StreamPage isAuth={isAuth} credits={credits} /> : <Navigate to="/" replace />} />
-        <Route path="/profile" element={isAuth ? <ProfilePage isAuth={isAuth} credits={credits} /> : <Navigate to="/" replace />} />
         <Route path="/404" element={<NotFoundPage />} />
       </Routes>
     </>

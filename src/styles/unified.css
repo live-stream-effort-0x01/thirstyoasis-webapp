@@ -57,6 +57,8 @@ body {
     margin: 0;
     padding: 0;
     width: 30%;
+    flex: 1;
+    max-width: 50%;
 }
 
 .header__nav-list--left li:hover {
@@ -154,7 +156,7 @@ body {
 }
 
 /* Profile Tabs Container */
-.tabs-container {
+.profile-page .tabs-container {
     margin: 20px;
     padding: 20px;
     background-color: var(--bg-primary);
@@ -165,7 +167,7 @@ body {
 }
 
 /* Tabs */
-.tabs {
+.profile-page .tabs {
     display: flex;
     flex-direction: column;
     /* Make tabs vertical */
@@ -174,7 +176,7 @@ body {
     width: 300px;
 }
 
-.tab-button {
+.profile-page .tab-button {
     background: none;
     border: none;
     padding: 10px 20px;
@@ -187,11 +189,11 @@ body {
     transition: all 0.3s ease;
 }
 
-.tab-button:hover {
+.profile-page .tab-button:hover {
     color: var(--bg-secondary);
 }
 
-.tab-button.active {
+.profile-page .tab-button.active {
     background-color: var(--bg-secondary);
     color: var(--text-secondary);
     border-left: 4px solid var(--bg-secondary);
@@ -199,7 +201,7 @@ body {
 }
 
 /* Tab Content */
-.tab-content {
+.profile-page .tab-content {
     flex: 1;
     padding: 20px;
     background-color: var(--bg-tertiary);
@@ -207,12 +209,12 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.profile-tabs-container {
+.profile-page .profile-tabs-container {
     justify-content: center;
     display: flex;
 }
 
-.profile-tab-card {
+.profile-page .profile-tab-card {
     width: 100%; 
     max-width: 800px; 
     margin: 0 auto; 
@@ -223,7 +225,7 @@ body {
 }
 /* Profile Details */
 
-.profile-card {
+.profile-page .profile-card {
     background: white;
     border-radius: 12px;
     padding: 30px;
@@ -231,27 +233,27 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.profile-picture-buttons {
+.profile-page .profile-picture-buttons {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.profile-picture {
+.profile-page .profile-picture {
     display: flex;
     align-items: center;
     gap: 15px;
     margin-bottom: 20px;
 }
 
-.profile-picture img {
+.profile-page .profile-picture img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.profile-button {
+.profile-page .profile-button {
     background-color: var(--bg-secondary);
     color: white;
     border: none;
@@ -261,28 +263,28 @@ body {
     font-size: 14px;
 }
 
-.profile-button-remove {
+.profile-page .profile-button-remove {
     background-color: white;
     color: var(--bg-secondary);
     border: 1px solid #00b36b;
 }
 
-.profile-info {
+.profile-page .profile-info {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
     font-size: 14px;
 }
 
-.profile-tier {
+.profile-page .profile-tier {
     color: #cc6600;
 }
 
-.profile-subscription {
+.profile-page .profile-subscription {
     color: var(--bg-secondary);
 }
 
-label {
+.profile-page label {
     display: block;
     font-weight: 600;
     margin-top: 15px;
@@ -290,8 +292,8 @@ label {
     font-size: 14px;
 }
 
-.profile-input,
-.profile-textarea {
+.profile-page .profile-input,
+.profile-page .profile-textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid var(--bg-secondary);
@@ -299,29 +301,29 @@ label {
     font-size: 14px;
 }
 
-.profile-textarea {
+.profile-page .profile-textarea {
     resize: vertical;
     min-height: 60px;
     font-family: "Roboto", sans-serif;
 }
 
-.profile-row {
+.profile-page .profile-row {
     display: flex;
     gap: 50px;
 }
 
-.profile-row>div {
+.profile-page .profile-row>div {
     flex: 1;
 }
 
-.profile-buttons-container {
+.profile-page .profile-buttons-container {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
     margin-top: 20px;
 }
 
-.profile-btn-cancel {
+.profile-page .profile-btn-cancel {
     background-color: transparent;
     color: var(--bg-secondary);
     border: 1px solid var(--bg-secondary);
@@ -331,7 +333,7 @@ label {
     transition: background-color 0.3s ease;
 }
 
-.profile-btn-save {
+.profile-page .profile-btn-save {
     background-color: var(--bg-secondary);
     color: var(--text-secondary);
     border: none;
@@ -343,7 +345,7 @@ label {
 
 /*Profile Security*/
 
-.security-card{
+.profile-page .security-card{
     background: white;
     border-radius: 12px;
     padding: 30px;
@@ -351,7 +353,7 @@ label {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.delete-account{
+.profile-page .delete-account{
     width: 100%;
     border: none;
     padding: 10px 20px;
@@ -362,20 +364,20 @@ label {
     color: var(--text-secondary);
 }
 
-.security-info{
+.profile-page .security-info{
     margin-top: 50px;
 }
 
-.security-header{
+.profile-page .security-header{
     font-weight: bold;
     font-size: 18px;
 }
 
-.security-form{
+.profile-page .security-form{
  margin-top: 40px;
 }
 
-.security-buttons-container {
+.profile-page .security-buttons-container {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
@@ -383,7 +385,7 @@ label {
     color: var(--error);
 }
 
-.security-btn-cancel {
+.profile-page .security-btn-cancel {
     background-color: transparent;
     color: var(--bg-secondary);
     border: 1px solid var(--bg-secondary);
@@ -393,7 +395,7 @@ label {
     transition: background-color 0.3s ease;
 }
 
-.security-btn-save {
+.profile-page .security-btn-save {
     background-color: var(--bg-secondary);
     color: var(--text-secondary);
     border: none;
@@ -405,7 +407,7 @@ label {
 
 
 /*Profile Payment*/
-.payment-card{
+.profile-page .payment-card{
     background: white;
     border-radius: 12px;
     padding: 30px;
@@ -413,20 +415,20 @@ label {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.payment-header p {
+.profile-page .payment-header p {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 20px;
     color: var(--text-primary);
 }
 
-.four-grid {
+.profile-page .four-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
-.grid-item {
+.profile-page .grid-item {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -439,53 +441,53 @@ label {
     gap: 10px;
 }
 
-.grid-item.active {
+.profile-page .grid-item.active {
     border: 2px solid var(--bg-secondary);
   }
 
-.grid-item:hover {
+  .profile-page .grid-item:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-.payment-logo {
+.profile-page .payment-logo {
     width: auto;
     height: auto;
     margin-bottom: 10px;
 }
 
-.card-info {
+.profile-page .card-info {
     display: flex;
     flex-direction: column;
     gap: 4px;
   }
   
-  .card-number {
+  .profile-page .card-number {
     font-size: 16px;
     font-weight: 500;
     color: #1a1a1a;
   }
   
-  .card-expiry {
+  .profile-page .card-expiry {
     font-size: 14px;
     color: #666;
   }
   
-  .card-expiry span {
+  .profile-page .card-expiry span {
     margin-left: 6px;
     font-weight: 500;
   }
 
 /*Profile Subscription*/
 
-.subscription-header {
+.profile-page .subscription-header {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 20px;
     color: var(--text-primary);
 }
 
-.subscription-content{
+.profile-page .subscription-content{
     background: var(--text-secondary);
     border-radius: 12px;
     padding: 20px;
@@ -493,24 +495,24 @@ label {
     box-shadow: 0 8px 24px rgba(6, 133, 55, 0.466);
 }
 
-.subscription-content p {
+.profile-page .subscription-content p {
     font-size: 18px;
     font-weight: 600;
 }
 
-.subscription-content li{
+.profile-page .subscription-content li{
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-.subscription-buttons-container {
+.profile-page .subscription-buttons-container {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
     margin-top: 20px;
 }
 
-.change-subscription-btn {
+.profile-page .change-subscription-btn {
     background-color: transparent;
     color: var(--bg-secondary);
     border: 1px solid var(--bg-secondary);
@@ -520,7 +522,7 @@ label {
     transition: background-color 0.3s ease;
 }
 
-.cancel-plan-btn {
+.profile-page .cancel-plan-btn {
     background-color: var(--bg-secondary);
     color: var(--text-secondary);
     border: none;
@@ -746,6 +748,7 @@ label {
 }
 
 .card:hover {
+    cursor: pointer;
     transform: scale(1.02);
     transition: all 0.5s;
 }
@@ -2157,3 +2160,30 @@ label {
       text-align: center;
     }
   }
+
+
+/* placeholder for Purchase now modal  */
+.purchase-now-modal-content {
+    background: var(--bg-primary);
+    max-width: 600px;
+    padding: 30px;
+    
+    margin: 3% auto;
+    
+    text-align: center;
+
+    border-radius: 15px;
+}
+
+.purchase-now-modal-content .close {
+    position: relative !important;
+    bottom: 60px;
+}
+
+.purchase-now-modal-content .modal-image{
+    width: 300px;
+}
+.header__nav-item--primary:hover{
+    cursor:pointer;
+}
+
