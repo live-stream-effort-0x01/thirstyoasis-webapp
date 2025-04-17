@@ -949,18 +949,359 @@ body {
 /* reutilize .overlay for modal overlay */
 
 /* login/signup modals */
-.modal-content-auth {
+
+/* login modal */
+.modal-content-auth-login {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     background-color: var(--bg-primary);
+    margin: 20px auto;
     padding: 20px;
-    width: 80%;
-    max-width: 620px;
     border-radius: 10px;
-    margin: auto;
+    width: 90%;
+    max-width: 620px;
+    box-sizing: border-box;
 }
+.modal-content-auth-login h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin: 0; 
+  text-align: center;
+  flex: 1; 
+}
+
+.modal-content-auth-login .modal-header {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 20px; 
+}
+.modal-content-auth-login .close {
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--bg-secondary);
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: end;
+}
+
+.modal-content-auth-login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content-auth-login label {
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.modal-content-auth-login .login-trouble {
+  margin-bottom: 25px;
+  font-size: 14px;
+  color: var(--bg-secondary);
+}
+
+.modal-content-auth-login input {
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 1px solid var(--bg-secondary);
+  border-radius: 5px;
+  background: var(--gradient-primary);
+}
+
+.modal-content-auth-login .login-btn {
+    background-color: var(--bg-secondary);
+    color: white;
+    padding: 10px 0; /* horizontal padding overriden by the default align-items: stretch */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.modal-content-auth-login .login-link {
+  color: var(--text-primary);
+}
+.login-link a{
+  text-decoration: none;
+  color: var(--bg-secondary);
+  font-weight: bold;
+}
+
+/* signup modal */
+.modal-content-auth {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--bg-primary);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  text-align: left;
+  position: relative;
+}
+.modal-content-auth .close {
+  position: absolute; 
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--bg-secondary);
+  background: none;
+  border: none;
+}
+/* Sidebar Styling */
+.signup-sidebar {
+  width: 25%; 
+  background-color: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 15px;
+  border-radius: 10px; 
+  margin-bottom: 20px;
+}
+
+.sidebar-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-tab span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  border:1px solid var(--text-secondary);
+}
+
+.sidebar-tab p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+.sidebar-tab.active {
+  background-color: var(--text-secondary);
+}
+
+.sidebar-tab.active p {
+  color: var(--bg-secondary);
+}
+
+.sidebar-tab.active span {
+  background-color: var(--bg-secondary);
+  color: var(--bg-primary);
+  border:1px solid var(--text-secondary);
+
+}
+
+/* Step Content Styling */
+.signup-step-content {
+  flex: 1; 
+  padding: 20px;
+  background-color: var(--bg-light);
+  border-radius: 0 10px 10px 0; 
+  font-size: 16px;
+  color: var(--text-primary);
+  height: 600px; 
+  box-sizing: border-box;
+}
+
+
+/* Navigation Buttons */
+.signup-navigation {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 0 20px; 
+  box-sizing: border-box;
+  background-color: var(--bg-primary); 
+  height: 60px;
+  align-items: flex-end;
+  justify-content: end;
+  gap: 20px;
+}
+
+.signup-navigation button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--bg-secondary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-navigation button:disabled {
+  background-color: var(--gray);
+  cursor: not-allowed;
+}
+
+.signup-navigation button:hover:not(:disabled) {
+  background-color: var(--bg-tertiary);
+}
+.signup-step-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.signup-step-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.dob {
+  display: flex;
+  gap: 10px; 
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.dob label {
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-right: 10px;
+}
+
+.dob input {
+  flex: 1; 
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Role Options Container */
+.role-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Role Card Styling */
+.role-card {
+  flex: 1;
+  background-color: transparent;
+  border: 1px solid var(--bg-secondary);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Role Icon Styling */
+
+/* Role Title */
+.role-card h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--bg-secondary);
+}
+
+/* Role Description */
+.role-card p {
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+/* Role Button */
+.role-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--bg-secondary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.role-btn:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* Summary Container */
+.summary-container {
+  display: flex;
+  flex-direction: column; 
+  gap: 15px; 
+  margin-top: 20px;
+}
+
+/* Summary Card Styling */
+.summary-card {
+  background-color: transparent;
+  border: 1px solid var(--bg-secondary);
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Summary Card Title */
+.summary-card h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--text-primary);
+}
+
+/* Summary Card Content */
+.summary-card p {
+  font-size: 14px;
+  color: var(--bg-secondary);
+  margin: 0;
+}
+
 
 .modal-content-auth h3 {
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
+    color: var(--bg-secondary);
 }
 
 .modal-content-auth form {
@@ -968,11 +1309,11 @@ body {
     flex-direction: column;
 }
 
-.modal-content-auth label {
+/* .modal-content-auth label {
     margin-bottom: 5px;
     font-size: 15px;
     font-weight: bold;
-}
+} */
 
 .modal-content-auth .login-trouble {
     margin-bottom: 25px;
@@ -1007,50 +1348,6 @@ body {
     color: var(--bg-secondary);
 }
 
-/* input container */
-.dob {
-    display: flex;
-    gap: 10px;
-}
-
-.dob > input {
-    width: 100%;
-}
-
-/* input container */
-.role-options {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.role-btn {
-    padding: 10px;
-    flex: 1;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 2px solid var(--bg-secondary);
-
-    /* non-selected role */
-    background: var(--text-secondary);
-    color: var(--bg-secondary);
-}
-
-/* we can add/remove this class to select/unselect button */
-.role-btn-selected {
-    background: var(--bg-secondary) !important;
-    color: var(--text-secondary) !important;
-    /* border is not a problem bc it overlaps with the default align-items:stretch */
-}
-
-.close {
-    color: var(--bg-secondary);
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
 
 .footer {
     background-color: var(--navbar-primary);
@@ -1370,11 +1667,16 @@ body {
     margin: 20px auto;
     padding: 30px;
     border-radius: 15px;
-    width: 85%;
+    width: 40%;
   }
   .stream-now-modal-content .modal-header h2 {
     color: var(--bg-secondary);
   }
+  .modal-header span{
+    font-size: 24px;
+    cursor: pointer;
+  }
+
   .stream-now-modal-content .modal-header {
     display: flex;
     justify-content: space-between;
@@ -1508,16 +1810,28 @@ body {
     margin-top: 10px;
     cursor: pointer;
   }
+  
 
 /* Mobile Devices */
 @media (max-width: 599px) {
+  .stream-now-modal-content {
+    width: 80%; /* Make the modal take 90% of the screen width */
+    padding: 15px; /* Reduce padding for smaller screens */
+    border-radius: 10px; /* Slightly smaller border radius */
+}
+
+.modal-header{
+  font-size: 14px;
+}
     .stream-now-modal-content .modal-content {
-      width: 90%;
-      padding: 10px;
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
     }
   
     .stream-now-modal-content .modal-columns {
       flex-direction: column;
+      gap: 20px;
     }
   
     .stream-now-modal-content .modal-column {
@@ -1527,15 +1841,26 @@ body {
   
     .stream-now-modal-content .webcam-preview {
       width: 100%;
-      height: 20%;
+      height: auto;
     }
   
     .stream-now-modal-content .stream-title-input,
     .stream-now-modal-content .stream-textarea,
-    .stream-now-modal-content .stream-price-input,
+    
     .stream-now-modal-content select {
       width: 100%;
     }
+    .stream-now-modal-content .price-options {
+      flex-direction: row;
+      gap: 10px;
+      text-align: center;
+      font-size: 14px;
+  }
+
+  .stream-now-modal-content .start-stream-button {
+    width: 100%; 
+    font-size: 14px; 
+}
    
   }
   
@@ -1562,7 +1887,6 @@ body {
   
     .stream-now-modal-content .stream-title-input,
     .stream-now-modal-content .stream-textarea,
-    .stream-now-modal-content .stream-price-input,
     .stream-now-modal-content select {
       width: 100%;
     }
@@ -2135,10 +2459,8 @@ body {
       flex-direction: row;
       align-items: center;
       order: 1;
-      width: 100%;
-      /* Ensure chat container takes full width */
-      padding: 10px;
-      /* Add padding for better spacing */
+      width: 100%; /* Ensure chat container takes full width */
+      padding: 10px; /* Add padding for better spacing */
     }
   
     .stream-main .chat-input input {
@@ -2164,6 +2486,91 @@ body {
     }
   }
   
+  @media (max-width: 768px) {
+    .modal-content-auth {
+        width: 90%; 
+        height: auto; 
+        padding: 15px;
+    }
+
+
+    .signup-sidebar {
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .sidebar-tab {
+        font-size: 10px; 
+        padding: 5px;
+    }
+
+    .sidebar-tab span{
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      font-size: 14px;
+    }
+    .sidebar-tab p{
+      font-size: 12px;
+    }
+
+    .signup-step-content {
+        padding: 15px;
+        font-size: 14px; 
+    }
+
+    .signup-step-content h3 {
+        font-size: 14px; 
+    }
+    .signup-step-content label {
+        font-size: 12px;
+    }
+
+    .signup-step-content input {
+        padding: 10px;
+        font-size: 12px;
+        height: 35px;
+    }
+
+    .signup-navigation {
+        padding: 10px;
+        height: auto;
+    }
+
+    .signup-navigation button {
+        font-size: 12px; 
+        padding: 8px 15px;
+    }
+    .role-options{
+      flex-direction: column;
+    }
+    .role-card {
+      padding: 15px; 
+      font-size: 12px;
+  }
+    .role-card p {
+      font-size: 14px; 
+  }
+
+  .summary-container {
+    gap: 10px; /
+  }
+
+  .summary-card {
+    padding: 20px; 
+    font-size: 12px; 
+  }
+
+  .summary-card h4 {
+    font-size: 14px;
+  }
+
+  .summary-card p {
+    font-size: 12px; 
+  }
+}
+
   /* Tablets */
   @media (min-width: 768px) and (max-width: 1024px) {
     

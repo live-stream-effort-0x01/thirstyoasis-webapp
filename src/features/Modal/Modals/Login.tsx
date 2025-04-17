@@ -6,7 +6,7 @@ export default function Login({modalKey, setModalKey}:ReadModalProps & SetModalP
     
     return (
         <div id={MODALS.LOGIN.id} className="overlay">
-        <div className="modal-content-auth">
+        <div className="modal-content-auth-login">
             <span className="close" onClick={()=>closeModal(MODALS.LOGIN.id)}>&times;</span>
             <h3>Log in to ThirstyOasis</h3>
             <form>
@@ -21,7 +21,7 @@ export default function Login({modalKey, setModalKey}:ReadModalProps & SetModalP
                 
                 <p className="login-link">
                     Dont'have account? 
-                    <a href="#" onClick={()=>handleModalClick("SIGNUP", {modalKey, setModalKey})}>Sign Up</a>
+                    <a href="#" onClick={()=>handleModalClick("SIGNUP", {modalKey, setModalKey})}> Sign Up</a>
                 </p>
             </form>
         </div>

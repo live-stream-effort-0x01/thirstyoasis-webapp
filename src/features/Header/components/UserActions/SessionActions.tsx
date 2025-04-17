@@ -40,7 +40,7 @@ export default function SessionActions(
             </li>
 
             <li className="header__nav-item header__nav-item--secondary header__nav-item--tertiary"
-                onClick={()=>handleModalClick("BUY_NOW", {modalKey, setModalKey})}>
+              >
                 <img src={token_coins} alt="token coins"/>{credits}
             </li>
             <li>

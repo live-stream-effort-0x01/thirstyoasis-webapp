@@ -25,13 +25,11 @@ export default function Header(
 
             <div className="header__nav-container">
                 <NavBar/>
-
                 {isAuth? 
                     <SessionActions setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey} />
                     : 
                     <LoginActions modalKey={modalKey} setModalKey={setModalKey}/>
                 }
-
             </div>
        </header>
     )
