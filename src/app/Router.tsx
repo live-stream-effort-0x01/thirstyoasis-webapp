@@ -6,6 +6,8 @@ import ProfilePage from './routes/ProfilePage'
 import { useState } from 'react'
 
 import "../styles/unified.css"
+import { AuthProvider } from '../hooks/useAuth'
+import { ProtectedRoute } from '../components/ProtectedRoute'
 
 
 //renamed from App.tsx to Router.tsx
@@ -19,26 +21,30 @@ export default function Router() {
 
   return (
     <>
-    <Routes>       
-        <Route path="/" 
-            element={<LandingPage isAuth={isAuth} setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>} 
-        />
-        
-        <Route  path="/stream" 
-                element={isAuth? 
-                    <StreamPage isAuth={isAuth} setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/> 
-                    : 
-                    <Navigate to="/" replace/>} 
-        />
+    <AuthProvider>
+      <Routes>       
+          <Route path="/" 
+              element={<LandingPage isAuth={isAuth} setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/>} 
+          />
+          
+          <Route  path="/stream" 
+                  element={
+                    <ProtectedRoute>
+                      <StreamPage isAuth={isAuth} setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey}/> 
+                    </ProtectedRoute>
+                    } 
+          />
 
-        <Route path="/profile" 
-               element={isAuth ? 
-                <ProfilePage isAuth={isAuth} setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey} /> 
-                : 
-                <Navigate to="/" replace />} />
+          <Route path="/profile" 
+                element={
+                  <ProtectedRoute>
+                  <ProfilePage isAuth={isAuth} setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey} />
+                  </ProtectedRoute>
+                }/>
 
-        <Route path="/404" element={<NotFoundPage />} />
-      </Routes>
+          <Route path="/404" element={<NotFoundPage />} />
+        </Routes>
+      </AuthProvider>
     </>
   )
 }
