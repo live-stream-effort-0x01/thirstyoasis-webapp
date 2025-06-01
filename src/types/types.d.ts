@@ -86,3 +86,7 @@ type ChannelGridProps = setClickedRoomProps & {
 type setClickedRoomProps = {
     setClickedRoom: React.Dispatch<React.SetStateAction<RoomData | undefined>>
 }
+type SetAuthProps = {
+  isAuth: boolean;
+  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
+}

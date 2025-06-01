@@ -1,11 +1,21 @@
-import { createContext, useContext, useMemo, ReactNode } from "react";
+import { createContext, useContext, useMemo, ReactNode, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "./useLocalStorage"; // make sure your hook is typed too!
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+
+// Firebase configuration
+import firebaseConfig from '../../firebase.json';
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 // Define the shape of our Auth context
 interface AuthContextType {
   user: string | null;
-  login: (data: string) => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
+  signup: (email: string, password: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -18,23 +28,59 @@ interface AuthProviderProps {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-    const [user, setUser] = useLocalStorage<string | null>("user", null);
+  const [user, setUser] = useState<string | null>(null);
   const navigate = useNavigate();
+  const [storedUser, setStoredUser] = useLocalStorage<string | null>("user", null);
 
-  const login = async (data: string) => {
-    setUser(data);
-    navigate("/profile");
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if (firebaseUser) {
+        setUser(firebaseUser.email);
+        setStoredUser(firebaseUser.email);
+      } else {
+        setUser(null);
+        setStoredUser(null);
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup subscription on unmount
+  }, []);
+
+  const login = async (email: string, password: string) => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/profile");
+    } catch (error: any) {
+      console.error("Login failed:", error.message);
+      throw error; // Re-throw the error for handling in the component
+    }
   };
 
-  const logout = () => {
-    setUser(null);
-    navigate("/", { replace: true });
+  const signup = async (email: string, password: string) => {
+    try {
+      debugger
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate("/profile");
+    } catch (error: any) {
+      console.error("Signup failed:", error.message);
+      throw error; // Re-throw the error for handling in the component
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/", { replace: true });
+    } catch (error: any) {
+      console.error("Logout failed:", error.message);
+    }
   };
 
   const value = useMemo<AuthContextType>(
     () => ({
       user,
       login,
+      signup,
       logout,
     }),
     [user]

@@ -1,4 +1,5 @@
 import handleModalClick from "../../../Modal/utils/handleModalClick";
+import { useAuth } from '../../../../hooks/useAuth';
 import avatar from '../../../../assets/avatar.jpg'
 import token_coins from "../../../../assets/token_coins.svg"
 import { useState } from 'react';
@@ -11,14 +12,16 @@ export default function SessionActions(
     
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const navigate = useNavigate();
-    
+    const { logout } = useAuth();
+
     const toggleDropdown = () => {
       setIsDropdownOpen(!isDropdownOpen);
     };
     
     const handleLogout = () => {
       console.log("User logged out");
-      // logout logic here
+      logout();
+      navigate('/');
       setIsAuth(false);
     };
     

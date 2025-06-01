@@ -408,6 +408,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
+
 /*Profile Security*/
 
 .profile-page .security-card{
@@ -839,7 +840,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-}
+    }
 
 /* text container */
 .card__info {
@@ -1078,11 +1079,18 @@ body {
   transition: background-color 0.3s ease;
 }
 
+.sidebar-tab:hover {
+  cursor: pointer;
+}
+
 .sidebar-tab span {
   display: inline-block;
   width: 40px;
   height: 40px;
   background-color: transparent;
+  color: var(--text-secondary);
+  font-size: 18px;
+  font-weight: bold;
   color: var(--text-secondary);
   font-size: 18px;
   font-weight: bold;
@@ -2679,3 +2687,31 @@ body {
     cursor:pointer;
 }
 
+.sidebar-tab {
+  cursor: pointer;
+}
+
+.role-card {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.role-card h4 {
+  color: #03ad5f;
+}
+
+.role-card p {
+  color: black;
+}
+
+.role-card.selected {
+  background-color: #03ad5f;
+}
+
+.role-card.selected h4 {
+  color: white;
+}
+
+.role-card.selected p {
+  color: white;
+}
