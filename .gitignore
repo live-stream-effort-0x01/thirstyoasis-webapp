@@ -23,6 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-
+firebase.json
 # txt
 TODO.txt
