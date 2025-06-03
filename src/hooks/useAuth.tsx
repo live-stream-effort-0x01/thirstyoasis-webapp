@@ -3,17 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "./useLocalStorage"; // make sure your hook is typed too!
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
-
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAQWlaH8qyVkcEuhrtgc8GirkcRMhj3DIE",
-  authDomain: "live-stream-ce9c0.firebaseapp.com",
-  projectId: "live-stream-ce9c0",
-  storageBucket: "live-stream-ce9c0.firebasestorage.app",
-  messagingSenderId: "59829229545",
-  appId: "1:59829229545:web:dc77bffe4256ca3e2b5d78",
-  measurementId: "G-5VTQNBZTKG"
-};
+import { firebaseConfig } from "../firebase-config";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

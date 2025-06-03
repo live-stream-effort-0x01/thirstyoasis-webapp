@@ -8,7 +8,7 @@ import Modal from "../../features/Modal/Modal";
 import useScrollToTop from "../../hooks/useScrollToTop";
 import useCloseModalOnPageLoad from "../../features/Modal/hooks/useCloseModalOnPageLoad";
 import { useState, useEffect } from "react";
-import useFillRoomsTEST from "../../hooks/useFillRoomsTEST";
+import useFetchRooms from "../../hooks/useFetchRooms";
 import PurchaseRoomModal from "../../features/LiveChannels/PurchaseRoomModal/PurchaseRoomModal";
 import { useAuth } from "../../hooks/useAuth";
 
@@ -25,7 +25,7 @@ export default function LandingPage({ isAuth, setIsAuth, credits, modalKey, setM
   // Update document title
   document.title = isAuth ? "ThirstyOasis" : "Welcome";
 
-  const { roomsArray } = useFillRoomsTEST();
+  const { roomsArray, loading, error } = useFetchRooms();
   const [clickedRoom, setClickedRoom] = useState<RoomData | undefined>(undefined);
 
   useFixStylesheetOrder();
