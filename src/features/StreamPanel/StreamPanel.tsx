@@ -1,18 +1,49 @@
-export default function StreamPanel (){
+import { LiveKitRoom, RoomAudioRenderer, VideoConference } from '@livekit/components-react';
+import { RoomOptions } from 'livekit-client';
+import { useEffect, useState } from 'react';
+
+interface StreamPanelProps {
+    serverUrl: string | undefined;
+    token: string | undefined;
+    roomOptions: RoomOptions;
+}
+
+export default function StreamPanel({ serverUrl, token, roomOptions }: StreamPanelProps) {
+    const [isLiveKitConnected, setIsLiveKitConnected] = useState(false);
+
+    useEffect(() => {
+        if (token && serverUrl) {
+            setIsLiveKitConnected(true);
+        } else {
+            setIsLiveKitConnected(false);
+        }
+    }, [token, serverUrl]);
+
     return (
         <div className="main-content">
             <section className="video-player">
-                <video controls>
-                    <source src="path/to/your/video.mp4" type="video/mp4"/>
-                    Your browser does not support the video tag.
-                </video>
+                <LiveKitRoom
+                    serverUrl={serverUrl}
+                    token={token}
+                    audio={true}
+                    video={true}
+                    onConnected={() => console.log("LiveKitRoom connected in StreamPanel!" + `isLiveKitConnected: ${isLiveKitConnected} && token:${token} && ${serverUrl}`)}
+                    onDisconnected={() => console.log("LiveKitRoom disconnected in StreamPanel!")}
+                >
+                    <VideoConference />
+                    <RoomAudioRenderer />
+                    {/* Render local and remote video tracks using ParticipantTile or similar components */}
+                    {/* For example:
+                        <ParticipantTile />
+                        */}
+                </LiveKitRoom>
             </section>
 
             {/* <!-- Profile and Buttons Section --> */}
             <section className="profile-buttons">
                 <div className="profile">
-                    <img src="https://th.bing.com/th/id/OIP.c2-_4t1v3AnqKvnZwRox8QHaHa?rs=1&pid=ImgDetMain" alt="Profile Icon" className="profile-icon"/>
-                    
+                    <img src="https://th.bing.com/th/id/OIP.c2-_4t1v3AnqKvnZwRox8QHaHa?rs=1&pid=ImgDetMain" alt="Profile Icon" className="profile-icon" />
+
                     <div className="profile-info">
                         <h2 className="profile-name">Elisexy</h2>
                         <p className="profile-bio">Lorem ipsum dolor sit amet consectetur</p>
@@ -28,16 +59,16 @@ export default function StreamPanel (){
                     <button className="btn follow-btn">
                         <i className="fa-solid fa-camera-retro"></i>Private Call
                     </button>
-                    
+
                     <button className="btn subscribe-btn">
                         <i className="fa-solid fa-heart"></i> Follow
                     </button>
-                    
+
                     <button className="btn donate-btn">
                         <i className="fa-solid fa-star"></i> Subscribe
                     </button>
                 </div>
-                
+
             </section>
 
             <div className="streamer-description">
@@ -45,5 +76,5 @@ export default function StreamPanel (){
             </div>
 
         </div>
-    )
+    );
 }

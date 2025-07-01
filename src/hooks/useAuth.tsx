@@ -11,7 +11,8 @@ const auth = getAuth(app);
 
 // Define the shape of our Auth context
 interface AuthContextType {
-  user: string | null;
+  user: { email: string | null; uid: string | null } | null;
+  token: string | null;
   login: (email: string, password: string) => Promise<void>;
   signup: (email: string, password: string) => Promise<void>;
   logout: () => void;
@@ -26,17 +27,21 @@ interface AuthProviderProps {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState<string | null>(null);
+  const [user, setUser] = useState<{ email: string | null; uid: string | null } | null>(null);
+  const [token, setToken] = useState<string | null>(null);
   const navigate = useNavigate();
-  const [storedUser, setStoredUser] = useLocalStorage<string | null>("user", null);
+  const [storedUser, setStoredUser] = useLocalStorage<string | null>("user", null); // This might need to be updated to store more user info if needed
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
-        setUser(firebaseUser.email);
-        setStoredUser(firebaseUser.email);
+        const idToken = await firebaseUser.getIdToken();
+        setUser({ email: firebaseUser.email, uid: firebaseUser.uid });
+        setToken(idToken);
+        setStoredUser(firebaseUser.email); // Still storing email for local storage, adjust if more info needed
       } else {
         setUser(null);
+        setToken(null);
         setStoredUser(null);
       }
     });
@@ -77,11 +82,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const value = useMemo<AuthContextType>(
     () => ({
       user,
+      token,
       login,
       signup,
       logout,
     }),
-    [user]
+    [user, token]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
