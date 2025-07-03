@@ -21,6 +21,10 @@ textarea {
   font-family: inherit;
 }
 
+html, body, #root, .container {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -2468,12 +2472,16 @@ body {
   /* Stream Page */
   .stream-main {
     display: flex;
+    flex-grow: 1;
+    height: 100%;
   }
   
   .stream-main .content-container {
     display: flex;
     width: 100%;
     gap: 0;
+    flex-grow: 1;
+    height: 100%;
   }
   
   .stream-main .main-content {
@@ -2486,10 +2494,62 @@ body {
     width: 100%;
   }
   
-  .stream-main .video-player video {
+  .stream-main .video-player {
+    position: relative;
     width: 100%;
-    max-width: 100%;
-    height: auto;
+    padding-top: 40%; /* Further reduced size, maintaining aspect ratio */
+    padding-bottom: 60px; /* Space for controls */
+    overflow: hidden;
+    background-color: black; /* Fallback background */
+  }
+
+  .stream-main .video-player .lk-video-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure the video fits within the fixed size */
+  }
+  .stream-main .video-player .lk-room-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure the video fits within the fixed size */
+  }
+
+  .stream-main .video-display-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+  }
+
+  .stream-main .fixed-size-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure the video fits within the fixed size */
+    /* Removed temporary border for debugging */
+  }
+
+  .stream-main .video-placeholder {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
   }
   
   .stream-main .profile-buttons {
@@ -2498,6 +2558,139 @@ body {
     justify-content: space-between;
     margin-top: 20px;
     /* gap: 20px; */
+  }
+
+  .stream-main .video-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 24px;
+    z-index: 10;
+  }
+
+  .stream-main .stream-info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .stream-main .profile-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .stream-main .profile-section .profile-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bg-secondary);
+  }
+
+  .stream-main .profile-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stream-main .profile-details .profile-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Adjustments for StreamPanel layout */
+  .stream-main .main-content {
+    flex: 3;
+    margin-right: 20px; /* Add some space between video panel and chat */
+  }
+
+  .stream-main .sidebar-chat {
+    flex: 1;
+    min-width: 300px; /* Ensure chat has a minimum width */
+    max-width: 400px; /* Optional: set a max width for chat */
+    border-left: 1px solid #e0e0e0; /* Add a separator */
+  }
+
+  .stream-main .profile-details .profile-name .fa-circle-check {
+    color: var(--bg-secondary);
+    font-size: 18px;
+  }
+
+  .stream-main .profile-details .profile-description {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+  }
+
+  .stream-main .profile-details .profile-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+  }
+
+  .stream-main .profile-details .tag {
+    background-color: var(--bg-tertiary);
+    color: var(--bg-secondary);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .stream-main .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .stream-main .lk-button {
+    padding: 10px 20px;
+    border-radius: 20px; /* More rounded corners */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .stream-main .private-call-btn {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: none;
+  }
+
+  .stream-main .private-call-btn:hover {
+    background-color: #028a4b; /* Darker green on hover */
+  }
+
+  .stream-main .follow-btn,
+  .stream-main .subscribe-btn {
+    background-color: transparent;
+    color: var(--bg-secondary);
+    border: 2px solid var(--bg-secondary);
+  }
+
+  .stream-main .follow-btn:hover,
+  .stream-main .subscribe-btn:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-color: var(--bg-secondary); /* Ensure border color changes on hover */
+  }
+
+  .stream-main .streamer-full-description {
+    padding: 20px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
   }
   
   .stream-main .profile {
@@ -2587,107 +2780,158 @@ body {
   .stream-main .sidebar-chat {
     flex: 1;
     background-color: var(--bg-tertiary);
-    padding: 20px 0;
-  }
-  
-  .stream-main .sidebar-chat h3 {
-    margin-top: 0;
-    text-align: center;
-    color: var(--bg-secondary);
-  }
-  
-  .stream-main .chat-messages {
-    height: 650px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .stream-main .chat-input {
+    padding: 0;
     display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between; /* Distribute space between items */
   }
-  
-  .stream-main .chat-input input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-  }
-  
+
   .stream-main .chat-header {
-    background-color: transparent;
-    color: var(--bg-secondary);
-    text-align: center;
-    border-bottom: 1px solid var(--bg-secondary)
-  }
-  
-  .stream-main .chat-messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-  }
-  
-  .stream-main .chat-input {
-    display: flex;
-    padding: 10px;
-  }
-  
-  .stream-main .chat-input input {
-    flex: 1;
-    padding: 15px;
-    border: 1px solid var(--bg-secondary);
-    border-radius: 10px;
-    background-color: transparent;
-  }
-  
-  
-  .stream-main .chat-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-  }
-  
-  
-  .stream-main .chat-settings .send-btn {
-    padding: 10px 25px;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--bg-secondary);
-    color: var(--text-secondary);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .stream-main .chat-credits .tip-btn {
-    padding: 10px;
+    padding: 15px 20px;
+    background-color: var(--bg-tertiary);
+    border-bottom: 1px solid #e0e0e0;
     color: var(--bg-secondary);
-    border: 1px solid var(--bg-secondary);
-    background-color: transparent;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+    font-weight: bold;
+    font-size: 18px;
   }
-  
-  .stream-main .chat-settings,
-  .stream-main .chat-credits {
+
+  /* Mobile adjustments for StreamPage */
+  @media (max-width: 768px) {
+    .stream-main .main-content {
+      margin-right: 0; /* Remove margin on small screens */
+    }
+
+    .stream-main .sidebar-chat {
+      min-width: auto; /* Remove min-width constraint */
+      max-width: none; /* Remove max-width constraint */
+      border-left: none; /* Remove border */
+      margin-top: 20px; /* Add space between video and chat when stacked */
+    }
+  }
+
+  .stream-main .chat-header i {
+    font-size: 20px;
+    color: var(--bg-secondary);
+  }
+
+  .stream-main .chat-messages {
+    flex-grow: 1; /* Allow messages to take available space */
+    overflow-y: auto;
+    padding: 15px 20px;
+    background-color: #E0F7FA; /* Very light blue for chat background */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between messages */
+  }
+
+  .stream-main .chat-message {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .stream-main .chat-message .username {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .stream-main .chat-message .dj-sunroof {
+    color: #8A2BE2; /* BlueViolet */
+  }
+
+  .stream-main .chat-message .chaostrojan {
+    color: #FF69B4; /* HotPink */
+  }
+
+  .stream-main .chat-message .message-text {
+    color: var(--text-primary);
+  }
+
+  .stream-main .chat-input-container {
     display: flex;
     align-items: center;
-    gap: 5px;
+    padding: 15px 20px;
+    background-color: var(--bg-tertiary);
+    border-top: 1px solid #e0e0e0;
   }
-  
-  .stream-main .chat-credits p {
-    color: var(--bg-secondary);
-    margin: 0;
+
+  .stream-main .chat-input-field {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Rounded input field */
+    font-size: 14px;
+    outline: none;
+    margin-right: 10px;
+    background-color: var(--text-secondary); /* White background for input */
   }
-  
-  .stream-main .chat-settings .fa-cog {
-    cursor: pointer;
+
+  .stream-main .chat-input-icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .stream-main .chat-input-icons i {
     font-size: 20px;
-    color: var(--text-primary);
+    color: #888; /* Gray icons */
+    cursor: pointer;
+  }
+
+  .stream-main .chat-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--bg-tertiary);
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .stream-main .send-tip-btn {
+    background-color: transparent;
+    color: var(--bg-secondary);
+    border: 1px solid var(--bg-secondary);
+    padding: 8px 15px;
+    border-radius: 20px; /* Rounded button */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .stream-main .send-tip-btn:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+
+  .stream-main .credits-display {
+    font-size: 14px;
+    color: #555;
+    font-weight: bold;
+  }
+
+  .stream-main .settings-icon {
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+  }
+
+  .stream-main .send-message-btn {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px; /* Rounded button */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .stream-main .send-message-btn:hover {
+    background-color: #028a4b;
   }
 
   /* Mobile Devices */
@@ -2775,9 +3019,90 @@ body {
       display: none;
     }
   
-    .stream-main .chat-credits p {
-      text-align: center;
-    }
+  .stream-main .chat-credits p {
+    text-align: center;
+  }
+
+  /* LiveKit Controls Styling */
+  .lk-control-bar {
+    background-color: transparent !important;
+    padding: 10px 20px !important; /* Add horizontal padding for corner effect */
+    display: flex !important;
+    justify-content: space-between !important; /* Push items to ends */
+    align-items: center !important;
+    position: absolute !important;
+    bottom: 0 !important; /* Position at the very bottom of the padded area */
+    left: 0 !important; /* Align to left edge */
+    width: 100% !important; /* Span full width */
+    gap: 10px !important; /* Keep gap between buttons within groups */
+  }
+
+  /* Group for left-aligned buttons (play, sound) */
+  .lk-control-bar > :nth-child(-n+2) { /* Target first two buttons (play/pause, audio) */
+    margin-right: auto; /* Push subsequent elements to the right */
+  }
+
+  /* Group for right-aligned buttons (minimize, setting, casting, full screen) */
+  .lk-control-bar > :nth-last-child(-n+4) { /* Target last four buttons */
+    margin-left: 10px; /* Add some spacing between groups if needed */
+  }
+
+  .lk-control-bar .lk-button {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Dark transparent background */
+    color: var(--text-secondary) !important; /* White text */
+    border: 1px solid var(--text-secondary) !important; /* White border */
+    border-radius: 50% !important; /* Perfectly round buttons */
+    width: 40px !important; /* Fixed width */
+    height: 40px !important; /* Fixed height */
+    padding: 0 !important; /* Remove padding for fixed size */
+    font-size: 14px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+    display: flex !important;
+    justify-content: center !important; /* Center content horizontally */
+    align-items: center !important; /* Center content vertically */
+    gap: 0 !important; /* No gap for single icon buttons */
+  }
+
+  .lk-control-bar .lk-button:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important; /* Subtle white transparent background on hover */
+    color: var(--text-secondary) !important; /* Keep text white */
+    border-color: var(--text-secondary) !important; /* Keep border white */
+  }
+
+  .lk-control-bar .lk-button.lk-button-selected {
+    background-color: var(--bg-secondary) !important; /* Green when selected */
+    color: var(--text-secondary) !important;
+    border-color: var(--bg-secondary) !important;
+  }
+
+  .lk-control-bar .lk-button.lk-button-danger {
+    background-color: var(--error) !important;
+    color: var(--text-secondary) !important;
+    border-color: var(--error) !important;
+  }
+
+  .lk-control-bar .lk-icon {
+    color: var(--text-secondary) !important; /* White icon */
+    font-size: 20px !important; /* Larger icon to fill button */
+  }
+
+  .lk-control-bar .lk-button:hover .lk-icon {
+    color: var(--text-secondary) !important; /* White icon on hover */
+  }
+
+  .lk-control-bar .lk-button:hover .lk-icon {
+    color: var(--text-secondary) !important; /* White icon on hover */
+  }
+
+  .lk-control-bar .lk-button.lk-button-selected .lk-icon {
+    color: var(--text-secondary) !important;
+  }
+
+  .lk-control-bar .lk-button.lk-button-danger .lk-icon {
+    color: var(--text-secondary) !important;
+  }
   }
   
   @media (max-width: 768px) {

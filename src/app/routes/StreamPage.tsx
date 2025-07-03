@@ -62,7 +62,6 @@ export default function StreamPage(
             const livekitToken = await response.text();
             if (livekitToken) {
                 setToken(livekitToken);
-                console.log(`Fetched LiveKit token for room: ${roomName}, participant: ${participantName}`);
             } else {
                 console.error("LiveKit token not found in API response.");
             }
@@ -74,7 +73,7 @@ export default function StreamPage(
 
     useEffect(() => {
         // For demonstration, using dummy room and participant names
-        const roomName = "thuy3@gmail"; // Example streamer ID/email
+        const roomName = "quandv"; // Example streamer ID/email
         const participantName = "thanh@gmail.com"; // Example viewer ID/email
 
         fetchLiveKitToken(roomName, participantName);
