@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MODALS } from "../config/modalsConfig";
 import closeModal from "../utils/closeModal";
 import { useAuth } from '../../../hooks/useAuth';
+import useEnvConfigs from '../../../hooks/useEnvConfig';
 
 export default function StreamNow(){
     const [streamTitle, setStreamTitle] = useState('');
@@ -12,6 +13,7 @@ export default function StreamNow(){
     const tags = 'love'; // Hardcoded as per curl request
 
     const { user, token } = useAuth();
+    const { createPublicRoomUrl } = useEnvConfigs();
 
     const handleStartStream = async () => {
         if (!user || !user.email || !token) {
@@ -30,7 +32,7 @@ export default function StreamNow(){
         formData.append('tags', tags);
 
         try {
-            const response = await fetch('https://dev-room-manager.demothesoftwarepls.site/api/v1/room/public/create', {
+            const response = await fetch(createPublicRoomUrl, {
                 method: 'POST',
                 headers: {
                     'accept': 'application/json',

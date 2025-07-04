@@ -8,6 +8,7 @@ import Modal from "../../features/Modal/Modal"
 import StreamChat from "../../features/StreamChat/StreamChat"
 import StreamPanel from "../../features/StreamPanel/StreamPanel"
 import useScrollToTop from "../../hooks/useScrollToTop"
+import useEnvConfigs from "../../hooks/useEnvConfig";
 
 
 export default function StreamPage(
@@ -21,6 +22,7 @@ export default function StreamPage(
     useCloseModalOnPageLoad(setModalKey);
 
     const { token: idToken } = useAuth(); // Get the Firebase ID token
+    const { joinPublicRoomUrl } = useEnvConfigs();
 
     const livekitUrl = import.meta.env.VITE_LIVEKIT_URL;
 
@@ -43,7 +45,7 @@ export default function StreamPage(
             return;
         }
 
-        const apiUrl = `https://dev-room-manager.demothesoftwarepls.site/api/v1/room/public/${roomName}/join/${participantName}`;
+        const apiUrl = `${joinPublicRoomUrl}/${roomName}/join/${participantName}`;
 
         try {
             const response = await fetch(apiUrl, {

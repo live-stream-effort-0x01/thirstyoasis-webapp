@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const login = async (email: string, password: string) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/profile");
+      navigate("/");
     } catch (error: any) {
       console.error("Login failed:", error.message);
       throw error; // Re-throw the error for handling in the component
@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       debugger
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate("/profile");
+      navigate("/");
     } catch (error: any) {
       console.error("Signup failed:", error.message);
       throw error; // Re-throw the error for handling in the component
