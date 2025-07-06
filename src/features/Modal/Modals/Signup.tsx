@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { MODALS } from '../config/modalsConfig';
 import closeModal from '../utils/closeModal';
 import { useAuth } from '../../../hooks/useAuth';
+import formatUSPhoneNumber from '../../../utils/formatUSPhoneNumber';
 
 const steps = ['Personal Info', 'Role', 'Summary'];
 
@@ -148,8 +149,18 @@ export default function Signup() {
                 name="signup-phone"
                 required
                 placeholder="Phone Number"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                value={formatUSPhoneNumber(phone)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                  // Remove the '+1 ' prefix and then all non-digit characters
+                  let inputDigits = e.target.value.startsWith('+1 ')
+                    ? e.target.value.substring(3).replace(/[^\d]/g, '')
+                    : e.target.value.replace(/[^\d]/g, '');
+
+                  // Cap the inputDigits at 10 to ensure we only store the relevant part of the phone number
+                  inputDigits = inputDigits.slice(0, 10);
+
+                  setPhone(inputDigits);
+                }}
               />
             </div>
           )}

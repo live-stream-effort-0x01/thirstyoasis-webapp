@@ -3,9 +3,10 @@ import closeModal from "../utils/closeModal";
 import handleModalClick from "../utils/handleModalClick";
 import { useAuth } from "../../../hooks/useAuth";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 export default function Login({modalKey, setModalKey}:ReadModalProps & SetModalProps){
     const { login } = useAuth();
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -14,6 +15,7 @@ export default function Login({modalKey, setModalKey}:ReadModalProps & SetModalP
         try {
             await login(email, password);
             closeModal(MODALS.LOGIN.id);
+            navigate('/');
         } catch (error: any) {
             // Handle login error
             console.error(error);
