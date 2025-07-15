@@ -1,36 +1,70 @@
-import scrollTags from "./utils/scrollTags";
+import { useState, useEffect } from 'react'
+import scrollTags from './utils/scrollTags'
+
+interface TagResponse {
+  tags: string[]
+}
 
 export default function TagsContainer() {
+  const [tags, setTags] = useState<string[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-    return (
-        <div className="tags-container">
-            <button className="tags-prev" onClick={()=>scrollTags(-1)}>&#10094;</button>
-            <div className="tags">
-                <span className="tag">Tag 1</span>
-                <span className="tag">Tag 2</span>
-                <span className="tag">Tag 3</span>
-                <span className="tag">Tag 4</span>
-                <span className="tag">Tag 5</span>
-                <span className="tag">Tag 6</span>
-                <span className="tag">Tag 7</span>
-                <span className="tag">Tag 8</span>
-                <span className="tag">Tag 9</span>
-                <span className="tag">Tag 10</span>
-                <span className="tag">Tag 11</span>
-                <span className="tag">Tag 12</span>
-                <span className="tag">Tag 13</span>
-                <span className="tag">Tag 14</span>
-                <span className="tag">Tag 15</span>
-                <span className="tag">Tag 16</span>
-                <span className="tag">Tag 17</span>
-                <span className="tag">Tag 18</span>
-                <span className="tag">Tag 19</span>
-                <span className="tag">Tag 20</span>
-                <span className="tag">Tag 21</span>
-                <span className="tag">Tag 22</span>
-            </div>
-            <button className="tags-next" onClick={()=>scrollTags(1)}>&#10095;</button>
-        </div>
-    )
-  
+  useEffect(() => {
+    const fetchTags = async () => {
+      try {
+        const response = await fetch('https://dev-room-manager.demothesoftwarepls.site/api/v1/tag/list', {
+          method: 'GET',
+          headers: {
+            'accept': 'application/json',
+            // Remove Authorization header temporarily to test
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
+        const data: TagResponse = await response.json()
+        setTags(data.tags)
+      } catch (error) {
+        console.error('Failed to fetch tags:', error)
+        setError('Failed to load tags')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchTags()
+  }, [])
+
+  if (loading) {
+    return <div className="tags-container">Loading tags...</div>
+  }
+
+  if (error) {
+    return <div className="tags-container">Error: {error}</div>
+  }
+
+  return (
+    <div className="tags-container">
+      <button className="tags-prev" onClick={() => scrollTags(-1)}>
+        &#10094;
+      </button>
+      <div className="tags">
+        {tags.length > 0 ? (
+          tags.map((tag, index) => (
+            <span key={index} className="tag">
+              {tag}
+            </span>
+          ))
+        ) : (
+          <span className="tag">No tags available</span>
+        )}
+      </div>
+      <button className="tags-next" onClick={() => scrollTags(1)}>
+        &#10095;
+      </button>
+    </div>
+  )
 }
