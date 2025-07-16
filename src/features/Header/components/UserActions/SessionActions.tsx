@@ -5,9 +5,13 @@ import token_coins from "../../../../assets/token_coins.svg"
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+interface SessionActionsProps extends setAuthProps, CreditProps, ReadModalProps, SetModalProps {
+    isMobileMenuOpen?: boolean;
+    closeMobileMenu?: () => void;
+}
 
 export default function SessionActions(
-    {setIsAuth, credits, modalKey, setModalKey}: setAuthProps & CreditProps & ReadModalProps & SetModalProps
+    {setIsAuth, credits, modalKey, setModalKey, isMobileMenuOpen, closeMobileMenu}: SessionActionsProps
 ){
     
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -23,22 +27,35 @@ export default function SessionActions(
       logout();
       navigate('/');
       setIsAuth(false);
+      if (closeMobileMenu) {
+          closeMobileMenu();
+      }
     };
     
     const handleProfileClick = () => {
       navigate('/profile');
+      if (closeMobileMenu) {
+          closeMobileMenu();
+      }
+    };
+
+    const handleModalAction = (modalType: ModalKey) => {
+        handleModalClick(modalType, {modalKey, setModalKey});
+        if (closeMobileMenu) {
+            closeMobileMenu();
+        }
     };
     
     return (
-        <ul className="header__nav-list header__nav-list--right" aria-label="User actions">
+        <ul className={`header__nav-list header__nav-list--right ${isMobileMenuOpen ? 'header__nav-list--active' : ''}`} aria-label="User actions">
 
             <li className="header__nav-item header__nav-item--secondary"
-                onClick={()=>handleModalClick("STREAM_NOW", {modalKey, setModalKey})}>
+                onClick={() => handleModalAction("STREAM_NOW")}>
                 Stream Now
             </li>
 
             <li className="header__nav-item header__nav-item--primary"
-                onClick={()=>handleModalClick("BUY_TOKENS", {modalKey, setModalKey})}>
+                onClick={() => handleModalAction("BUY_TOKENS")}>
                 Buy Tokens
             </li>
 
@@ -52,7 +69,7 @@ export default function SessionActions(
           onClick={toggleDropdown}
           aria-label="User Profile"
         >
-          <img src={avatar} alt="User Avatar" className="avatar-image" />
+          <img src={avatar} alt="User Avatar" className="avatar-image" /> <span>Jane</span>
         </button>
         {isDropdownOpen && (
           <div className="dropdown-menu">

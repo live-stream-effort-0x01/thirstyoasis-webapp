@@ -1,15 +1,14 @@
-import { LiveKitRoom, RoomAudioRenderer, VideoTrack, useLocalParticipant, useRemoteParticipants } from '@livekit/components-react';
-import { RoomOptions, Track } from 'livekit-client';
+import { LiveKitRoom, RoomAudioRenderer, useLocalParticipant, useRemoteParticipants } from '@livekit/components-react';
+import { Track } from 'livekit-client';
 import { useEffect, useState, useRef } from 'react';
 import '@livekit/components-styles';
 
 interface StreamPanelProps {
     serverUrl: string | undefined;
     token: string | undefined;
-    roomOptions: RoomOptions;
 }
 
-export default function StreamPanel({ serverUrl, token, roomOptions }: StreamPanelProps) {
+export default function StreamPanel({ serverUrl, token }: StreamPanelProps) {
     const [isLiveKitConnected, setIsLiveKitConnected] = useState(false);
 
     useEffect(() => {
@@ -21,7 +20,7 @@ export default function StreamPanel({ serverUrl, token, roomOptions }: StreamPan
     }, [token, serverUrl]);
 
     return (
-        <div className="main-content">
+        <>
             <section className="video-player">
                 <div className="video-header">
                     <i className="fa-solid fa-arrow-left"></i>
@@ -48,38 +47,41 @@ export default function StreamPanel({ serverUrl, token, roomOptions }: StreamPan
                 </LiveKitRoom>
             </section>
 
-            <section className="stream-info-section">
-                <div className="profile-section">
-                    <img src="https://th.bing.com/th/id/OIP.c2-_4t1v3AnqKvnZwRox8QHaHa?rs=1&pid=ImgDetMain" alt="Profile Icon" className="profile-icon" />
-                    <div className="profile-details">
+            <section className="stream-info">
+                <div className="profile-details">
+                    <img src="https://th.bing.com/th/id/OIP.c2-_4t1v3AnqKvnZwRox8QHaHa?rs=1&pid=ImgDetMain" alt="Profile Icon" className="profile-avatar" />
+                    <div className="profile-text">
                         <h2 className="profile-name">Pestily <i className="fa-solid fa-circle-check"></i></h2>
                         <p className="profile-description">5 day subathon! pc giveaway for each day live!</p>
                         <div className="profile-tags">
-                            <span className="tag">Tag</span>
-                            <span className="tag">Tag</span>
-                            <span className="tag">Tag</span>
+                            <span className="tag">Gaming</span>
+                            <span className="tag">FPS</span>
+                            <span className="tag">Tarkov</span>
                         </div>
                     </div>
                 </div>
 
                 <div className="action-buttons">
-                    <button className="lk-button private-call-btn">
-                        <i className="fa-solid fa-video"></i>Private Call
+                    <button className="action-btn private-call-btn">
+                        <i className="fa-solid fa-video"></i>
+                        <span>Private Call</span>
                     </button>
-                    <button className="lk-button follow-btn">
-                        <i className="fa-solid fa-heart"></i> Follow
+                    <button className="action-btn follow-btn">
+                        <i className="fa-solid fa-heart"></i>
+                        <span>Follow</span>
                     </button>
-                    <button className="lk-button subscribe-btn">
-                        <i className="fa-solid fa-star"></i> Subscribe
+                    <button className="action-btn subscribe-btn">
+                        <i className="fa-solid fa-star"></i>
+                        <span>Subscribe</span>
                     </button>
                 </div>
             </section>
 
-            <div className="streamer-full-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae ipsum vulputate, imperdiet libero in, blandit libero. Vestibulum ex ligula, ullamcorper sed sapien vel, venenatis vulputate purus. Maecenas sed placerat sapien, ut laoreet odio. Nulla leo diam, tristique eget erat volutpat, tincidunt lacinia arcu. Proin porta nulla sed tortor auctor varius. Cras aliquet odio nibh, non faucibus mauris maximus vel. Ut ipsum libero, maximus id lacus in, tempor aliquam risus. Nunc sodales nulla ut varius ultricies.</p>
-            </div>
-
-        </div>
+            <section className="stream-description">
+                <h3>About this Stream</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae ipsum vulputate, imperdiet libero in, blandit libero. Vestibulum ex ligula, ullamcorper sed sapien vel, venenatis vulputate purus. Maecenas sed placerat sapien, ut laoreet odio. Nulla leo diam, tristique eget erat volutpat, tincidunt lacinia arcu.</p>
+            </section>
+        </>
     );
 }
 

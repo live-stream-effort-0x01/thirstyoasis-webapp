@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { RoomOptions, VideoPresets } from 'livekit-client';
+import { useState, useEffect, useCallback } from 'react';
 
 import Header from "../../features/Header/Header"
 import { useAuth } from "../../hooks/useAuth";
@@ -25,14 +24,6 @@ export default function StreamPage(
     const { joinPublicRoomUrl } = useEnvConfigs();
 
     const livekitUrl = import.meta.env.VITE_LIVEKIT_URL;
-
-    const roomOptions: RoomOptions = {
-        adaptiveStream: true,
-        dynacast: true,
-        videoCaptureDefaults: {
-            resolution: VideoPresets.h720.resolution,
-        },
-    };
 
     const fetchLiveKitToken = useCallback(async (roomName: string, participantName: string) => {
         if (!idToken) {
@@ -85,18 +76,21 @@ export default function StreamPage(
         <div className="container">
             <Modal modalKey={modalKey} setModalKey={setModalKey} />
             <Header isAuth={isAuth} setIsAuth={setIsAuth} credits={credits} modalKey={modalKey} setModalKey={setModalKey} />
-            <main className="stream-main">
-                <div className="content-container">
-                    <StreamPanel
-                        serverUrl={livekitUrl}
-                        token={token}
-                        roomOptions={roomOptions}
-                    />
-                    <StreamChat
-                        credits={credits}
-                        serverUrl={livekitUrl}
-                        token={token}
-                    />
+            
+            <main className="stream-page">
+                <div className="stream-layout">
+                    <div className="stream-content">
+                        <StreamPanel
+                            serverUrl={livekitUrl}
+                            token={token}
+                        />
+                    </div>
+                    <div className="stream-sidebar">
+                        <StreamChat
+                            credits={credits}
+                            token={token}
+                        />
+                    </div>
                 </div>
             </main>
         </div>

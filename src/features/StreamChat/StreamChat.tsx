@@ -2,11 +2,10 @@
 
 interface StreamChatProps {
     credits: number | undefined;
-    serverUrl: string | undefined;
     token: string | undefined;
 }
 
-export default function StreamChat({ credits, serverUrl, token }: StreamChatProps) {
+export default function StreamChat({ credits, token }: StreamChatProps) {
     // LiveKit chat integration would go here.
     // You might use LiveKit's useChat hook or similar components.
     // For example:
@@ -37,12 +36,12 @@ export default function StreamChat({ credits, serverUrl, token }: StreamChatProp
                 {!token && <p>Waiting for LiveKit token to connect to chat...</p>}
             </div>
 
-            <div className="chat-input-container">
-                <input type="text" placeholder="Send a message" className="chat-input-field" />
-                <div className="chat-input-icons">
-                    <i className="fa-solid fa-face-smile"></i>
-                    <i className="fa-solid fa-paperclip"></i>
-                </div>
+            <div className="chat-input">
+                <input 
+                    type="text" 
+                    placeholder="Send a message..." 
+                    className="chat-input-field" 
+                />
             </div>
 
             <div className="chat-footer">

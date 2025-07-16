@@ -50,7 +50,7 @@ body {
     margin-top: 62px !important;
 }
 
-.header + .stream-main {
+.header + .stream-page {
     margin-top: 67px !important;
 }
 
@@ -195,6 +195,11 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    gap: 5px;
+}
+
+.avatar-button span{
+  display: none;
 }
 
 /* Dropdown Menu Styling */
@@ -1616,16 +1621,44 @@ body {
 
     .header {
         flex-direction: column;
-        align-items: flex-start;/*items to left*/
+        align-items: flex-start;
         justify-content: space-between;
+        position: relative;
     }
+    .header + .swiper-container {
+    margin-top: 1px !important;
+}
+
+.header + .stream-page {
+    margin-top: 10px !important;
+}
+
+.profile-page .header + .tabs-container {
+    margin-top: 10px !important;
+}
 
     .header__menu {
-        width: 100%;/*content->100%*/
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: var(--bg-primary);
     }
 
     .hamburger-menu {
-        display: block; /*none->block*/
+        display: block;
+        padding: 10px;
+        font-size: 24px;
+        color: var(--bg-secondary);
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .hamburger-menu:hover {
+        background-color: var(--bg-secondary);
+        color: var(--text-secondary);
     }
 
     .header__nav-container {
@@ -1634,52 +1667,185 @@ body {
         margin-left: 0;
         margin-top: 10px;
         gap: 20px;
-        width: 20%;
+        width: 100%;
+        padding: 0 20px;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    }
+
+    .header__nav-container--active {
+        display: block;
+        background-color: var(--bg-primary);
+        margin-top: 0;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        max-height: 1000px;
+        transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
     }
 
     .header__nav-list {
         display: none;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
     }
+    
     .header__nav-list--active {
         display: flex !important;
         flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-        width: auto;
+        gap: 15px;
+        align-items: stretch;
+        width: 100%;
+        margin-bottom: 20px;
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .header__nav-list--active li {
+        width: 100%;
+    }
+
+    .header__nav-list--active .header__nav-item,
+    .header__nav-list--active a.header__nav-item {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        text-align: left;
+        border: 1px solid var(--bg-secondary);
+        border-radius: 8px;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    .header__nav-list--active .header__nav-item:hover,
+    .header__nav-list--active a.header__nav-item:hover {
+        background-color: var(--bg-secondary);
+        color: var(--text-secondary);
+        transform: translateY(-2px);
+    }
+
+    .header__nav-list--active .header__nav-item--primary {
+        background-color: var(--bg-secondary);
+        color: var(--text-secondary);
+        border-color: var(--bg-secondary);
+    }
+
+    .header__nav-list--active .header__nav-item--primary:hover {
+        background-color: var(--text-primary);
+        color: var(--bg-primary);
     }
 
     /*header */
     .header__nav-item--tertiary {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 4px;
+      justify-content: flex-start;
+      gap: 10px;
       border: solid 1px var(--bg-secondary) !important;
-      max-width: 100px;
-      height: 30px;
-      width: auto;
+      padding: 12px 20px !important;
+      border-radius: 8px !important;
+      background-color: var(--bg-primary) !important;
+      width: 100% !important;
+      max-width: none !important;
+      height: auto !important;
+      box-sizing: border-box;
     }
 
+    .header__nav-item--tertiary img {
+        width: 20px;
+        height: 20px;
+    }
 
     .header__nav-item {
-        padding: 0; /*10px->0*/
-        max-width: 87px; /*100->87*/
-        width: auto; /*100%->auto*/
-        text-align: left;
+        padding: 15px 20px !important;
+        max-width: none !important;
+        width: 100% !important;
+        text-align: left !important;
+        border-radius: 8px !important;
+        font-size: 16px !important;
+        margin-bottom: 0 !important;
+        box-sizing: border-box;
     }
 
     .header__nav-item--secondary {
-        padding: 0 10px;
-        border: none;
-        width: 100px; 
+        padding: 15px 20px !important;
+        width: 100% !important;
+        background-color: var(--bg-primary) !important;
+        color: var(--text-primary) !important;
     }
 
     .header__nav-item--primary {
-        padding: 0 10px;
-        border: none;
+        padding: 15px 20px !important;
+        border: 1px solid var(--bg-secondary) !important;
+        background-color: var(--bg-secondary) !important;
+        color: var(--text-secondary) !important;
+        width: 100% !important;
+        border-radius: 8px !important;
+    }
+
+    /* Avatar button and dropdown styling for mobile */
+    .avatar-button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: var(--bg-primary);
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 22px;
+    }
+    .avatar-button span {
+        display: block;
+    }   
+
+    .avatar-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 12px;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 95%;
+        margin-top: 10px;
+        background-color: var(--bg-primary);
+        border: 1px solid var(--bg-secondary);
+        border-radius: 8px;
+        box-shadow: none;
+    }
+
+    .dropdown-profile {
+        padding: 15px 15px;
+        border-bottom: 1px solid var(--bg-secondary);
+    }
+
+    .dropdown-item {
+        width: 100%;
+        padding: 15px 20px;
+        text-align: left;
         background-color: transparent;
-        color: var(--bg-secondary);
-        width: 100px;
+        border: none;
+        color: var(--text-primary);
+        font-size: 16px;
+        cursor: pointer;
+        border-bottom: 1px solid var(--bg-secondary);
+    }
+
+    .dropdown-item:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+        background-color: var(--bg-secondary);
+        color: var(--text-secondary);
     }
 
     .swiper-container {
@@ -2435,55 +2601,342 @@ body {
   }
   
 
-  /* Stream Page */
-  .stream-main {
+  /* Stream Page Layout - Redesigned */
+  .stream-page {
     display: flex;
-    flex-grow: 1;
-    height: 100%;
-  }
-  
-  .stream-main .content-container {
-    display: flex;
-    width: 100%;
-    gap: 0;
-    flex-grow: 1;
-    height: 100%;
-  }
-  
-  .stream-main .main-content {
-      flex: 3;
-      margin-right: 0;
-    }
-  
-  .stream-main .video-player {
-    margin-bottom: 20px;
-    width: 100%;
-  }
-  
-  .stream-main .video-player {
-    position: relative;
-    width: 100%;
-    padding-top: 40%; /* Further reduced size, maintaining aspect ratio */
-    padding-bottom: 60px; /* Space for controls */
-    overflow: hidden;
-    background-color: black; /* Fallback background */
+    flex-direction: column;
+    min-height: calc(100vh - 67px);
+    background-color: var(--bg-primary);
   }
 
-  .stream-main .video-player .lk-video-track {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .stream-layout {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
     width: 100%;
-    height: 100%;
-    object-fit: contain; /* Ensure the video fits within the fixed size */
+    box-sizing: border-box;
   }
-  .stream-main .video-player .lk-room-container {
+
+  .stream-content {
+    flex: 2;
+    min-width: 0; /* Prevent flex item from overflowing */
+  }
+
+  .stream-sidebar {
+    flex: 0 0 350px;
+    min-height: 600px;
+  }
+
+  /* Video Player Improvements */
+  .stream-content .video-player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .stream-content .video-header {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .stream-content .video-header:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .stream-content .video-header i {
+    color: white;
+    font-size: 16px;
+  }
+
+  .stream-content .lk-video-track,
+  .stream-content .lk-room-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ensure the video fits within the fixed size */
+    object-fit: cover;
+  }
+
+  /* Stream Info Section */
+  .stream-info {
+    background-color: var(--bg-primary);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--bg-secondary);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .stream-info .profile-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-direction: row;
+    flex: 1;
+  }
+
+  .stream-info .profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .stream-info .profile-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stream-info .profile-name .fa-circle-check {
+    color: var(--bg-secondary);
+    font-size: 16px;
+  }
+
+  .stream-info .profile-description {
+    font-size: 14px;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  /* Chat Sidebar Improvements */
+  .stream-sidebar .sidebar-chat {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--bg-secondary);
+    border-radius: 12px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .stream-sidebar .chat-header {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+  }
+
+  .stream-sidebar .chat-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .stream-sidebar .chat-header i {
+    font-size: 18px;
+  }
+
+  .stream-sidebar .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stream-sidebar .chat-input {
+    padding: 15px 20px;
+    border-top: 1px solid var(--bg-secondary);
+    background-color: var(--bg-primary);
+  }
+
+  .stream-sidebar .chat-input input {
+    width: 90%;
+    padding: 10px 15px;
+    border: 1px solid var(--bg-secondary);
+    border-radius: 25px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .stream-sidebar .chat-input input:focus {
+    border-color: var(--bg-secondary);
+    box-shadow: 0 0 0 2px rgba(var(--bg-secondary-rgb), 0.1);
+  }
+
+  .stream-sidebar .chat-input input::placeholder {
+    color: var(--text-secondary);
+  }
+
+  /* Action Buttons */
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: 1px solid var(--bg-secondary);
+    border-radius: 8px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .action-btn:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    transform: translateY(-2px);
+  }
+
+  .action-btn.private-call-btn {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-color: var(--bg-secondary);
+  }
+
+  .action-btn i {
+    font-size: 16px;
+  }
+
+  /* Profile Tags */
+  .profile-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  .profile-tags .tag {
+    padding: 4px 8px;
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* Stream Description */
+  .stream-description {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--bg-secondary);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .stream-description h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .stream-description p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-size: 14px;
+  }
+
+  /* Chat Footer and Input Styling */
+  .chat-footer {
+    padding: 15px 20px;
+    border-top: 1px solid var(--bg-secondary);
+    background-color: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .send-tip-btn,
+  .send-message-btn {
+    padding: 8px 12px;
+    border: 1px solid var(--bg-secondary);
+    border-radius: 6px;
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .send-tip-btn:hover,
+  .send-message-btn:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+  }
+
+  .credits-display {
+    font-size: 12px;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .settings-icon {
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+
+  .settings-icon:hover {
+    color: var(--bg-secondary);
+  }
+
+  /* Chat Messages */
+  .chat-message {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .chat-message .username {
+    font-weight: 600;
+    color: var(--bg-secondary);
+  }
+
+  .chat-message .message-text {
+    color: var(--text-primary);
   }
 
   .stream-main .video-display-container {
@@ -2638,19 +3091,18 @@ body {
     background-color: #028a4b; /* Darker green on hover */
   }
 
-  .stream-main .follow-btn,
-  .stream-main .subscribe-btn {
-    background-color: transparent;
+
+  .action-btn.follow-btn,
+  .action-btn.subscribe-btn {
     color: var(--bg-secondary);
     border: 2px solid var(--bg-secondary);
   }
 
-  .stream-main .follow-btn:hover,
-  .stream-main .subscribe-btn:hover {
-    background-color: var(--bg-secondary);
+    .action-btn.follow-btn:hover,
+  .action-btn.subscribe-btn:hover {
     color: var(--text-secondary);
-    border-color: var(--bg-secondary); /* Ensure border color changes on hover */
   }
+
 
   .stream-main .streamer-full-description {
     padding: 20px 0;
@@ -2767,15 +3219,98 @@ body {
 
   /* Mobile adjustments for StreamPage */
   @media (max-width: 768px) {
-    .stream-main .main-content {
-      margin-right: 0; /* Remove margin on small screens */
+    .stream-layout {
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+      align-items: center;
     }
 
-    .stream-main .sidebar-chat {
-      min-width: auto; /* Remove min-width constraint */
-      max-width: none; /* Remove max-width constraint */
-      border-left: none; /* Remove border */
-      margin-top: 20px; /* Add space between video and chat when stacked */
+    .stream-content {
+      flex: none;
+    }
+
+    .stream-sidebar {
+      flex: none;
+      min-height: 400px;
+    }
+
+    .stream-content .video-player {
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    .stream-info {
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 15px;
+    }
+
+    .stream-info .profile-details {
+      gap: 12px;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+    }
+
+    .stream-info .profile-text {
+      width: 100%;
+      text-align: left;
+    }
+
+    .action-buttons {
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .action-btn {
+      flex: 1;
+      min-width: 100px;
+      justify-content: center;
+    }
+
+    .stream-info .profile-avatar {
+      width: 80px;
+      height: 80px;
+    }
+
+    .stream-info .profile-name {
+      font-size: 18px;
+    }
+
+    .stream-sidebar .sidebar-chat {
+      border-radius: 8px;
+      height: 400px;
+    }
+
+    .stream-sidebar .chat-header {
+      padding: 12px 15px;
+    }
+
+    .stream-sidebar .chat-header h3 {
+      font-size: 14px;
+    }
+
+    .stream-sidebar .chat-messages {
+      padding: 15px;
+    }
+
+    .stream-sidebar .chat-input {
+      padding: 12px 15px;
+    }
+  }
+
+  /* Tablet adjustments */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .stream-layout {
+      padding: 20px 15px;
+    }
+
+    .stream-sidebar {
+      flex: 0 0 300px;
     }
   }
 
